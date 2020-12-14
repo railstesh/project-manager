@@ -1,4 +1,19 @@
-<div class="page-header">
-  <h1>Home#index</h1>
+<h3> List of Assign Projects </h3>
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Project</th>
+        <th>Assigned</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @assigns.each do |assign| %>
+        <tr>
+          <td><%= assign.project.title %></td>
+          <td><%= assign.assigned %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-<p>Find me in app/views/home/index.html.erb</p>
