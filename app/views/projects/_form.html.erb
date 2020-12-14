@@ -1,0 +1,8 @@
+<div class = "mt-4 pl-4">	
+	<%= simple_form_for @project do |form| %>
+	  <%= form.input :title %>
+	  <%= form.input :client_name %>
+	  <%= form.submit "Save", class: 'btn btn-success' %>
+	  <%= link_to 'Back', projects_path, method: :get, class: "btn btn-success"%>
+	<% end %>
+</div>
