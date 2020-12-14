@@ -1,0 +1,9 @@
+<div class = "mt-4 pl-4">	
+	<%= simple_form_for @assign do |form| %>
+		<%= form.input :project_id, collection: Project.all, label: 'Project', input_html: { class: 'form-control col-sm-4' }, prompt: 'Select Project'%>
+	  <%= form.input :assigned %>
+	  <%= form.input :billing_hours %>
+	  <%= form.submit "Save", class: 'btn btn-success' %>
+	  <%= link_to 'Back', assigns_path, method: :get, class: "btn btn-success"%>
+	<% end %>
+</div>
