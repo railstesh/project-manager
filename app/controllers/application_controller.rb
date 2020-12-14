@@ -1,20 +1,20 @@
 class ApplicationController < ActionController::Base
-  # before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user! , unless: :root_controller?
 
-  def after_sign_in_path_for
+  def after_sign_in_path_for(resource)
     root_path
   end
 
-  def after_sign_out_path_for
+  def after_sign_out_path_for(resource)
     root_path
   end
 
   protected
 
-  # def configure_permitted_parameters
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name])
-  # end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:role, :name])
+  end
 
   def root_controller?
     controller_name == root_path.split("/").first
