@@ -42,7 +42,7 @@ gem 'font-awesome-rails'
 
 # configuration values often include sensitive information
 gem 'figaro'
-
+gem 'simple_form'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
