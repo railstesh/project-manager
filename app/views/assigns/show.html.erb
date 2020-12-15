@@ -1,0 +1,13 @@
+<div class="right-section">
+  <div class="right-top-section">
+    <h3> Assign Details</h3>
+  </div>
+  <ul>
+    <li> Project Name: <%= @assign.project.title %> </li>
+    <li> Assigned To: <%= @assign.employee&.name %> </li>
+    <li> Assigned As: <%= @assign.assigned_as %> </li>
+    <li> Billing Hrs: <%= @assign.billing_hours %> </li>
+    <li> Status: <%= @assign.status %> </li>
+    <li> Description: <%= @assign.active_discription %> </li>
+  </ul>
+</div>
