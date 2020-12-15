@@ -1,3 +1,46 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.navbar-right{
+  margin-right: 0 !important;
+}
+.main-section{
+  width: 100%;
+  padding-left: 20px;
+  .sidebar{
+    width: 150px;
+    float: left;
+    background-color: pink;
+    min-height: 250px;
+    a{
+      color: #000;
+    }
+  }
+  .right-section{
+    width: calc(100% - 150px);
+    margin-left: 200px;
+  }
+}
+.navbar-header{
+  margin-top: 10px;
+  img {
+    margin-left: 20px;
+  }
+  a{
+    color: white;
+  }
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  background-color: #000;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  background-color: #000 !important;
+}
+.sidebar{
+  ul,li:first-child {
+    margin-top: 20px;
+  }
+  ul,li{
+    margin-top: 10px;
+  }
+}

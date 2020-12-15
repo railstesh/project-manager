@@ -1,27 +1,29 @@
-<h3 class="mt-4 d-flex justify-content-center"> List of Projects </h3>
-<div class="pr-5">
-  <%= link_to 'Create', new_project_path, method: :get, class: "btn btn-primary float-right mb-5"%>
-</div>
-<div class="ml-3 mr-3">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Client Name</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @projects.each do |project| %>
+<div class="right-section">
+  <h3 class="mt-4 d-flex justify-content-center"> List of Projects </h3>
+  <div class="pr-5">
+    <%= link_to 'Create', new_project_path, method: :get, class: "btn btn-primary float-right mb-5"%>
+  </div>
+  <div class="ml-3 mr-3">
+    <table class="table table-striped">
+      <thead>
         <tr>
-          <td><%= project.title %></td>
-          <td><%= project.client_name %></td>
-          <td>
-      			<%= link_to 'edit', edit_project_path(project) %>
-      			<%= link_to 'delete', project_path(project), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'color-red' %>
-          </td>
+          <th>Name</th>
+          <th>Client Name</th>
+          <th>Action</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @projects.each do |project| %>
+          <tr>
+            <td><%= project.title %></td>
+            <td><%= project.client_name %></td>
+            <td>
+        			<%= link_to 'Edit', edit_project_path(project) %>
+        			<%= link_to 'Delete', project_path(project), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'color-red' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

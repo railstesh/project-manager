@@ -1,8 +1,17 @@
 <div>
   <%= render "layouts/header" %>
-  <div class="container">
-    <%= flash_messages %>
-    <%= yield %>
-  </div>
+  	<div class="main-section">
+  		<% if user_signed_in? %>
+		  	<div class="sidebar">
+		  		<ul>
+		  			<li><%= link_to "Dashboard", root_path %></li>
+		  			<li><%= link_to "Projects", projects_path %></li>
+		  			<li><%= link_to "Assigned", assigns_path %></li>
+		  		</ul>
+		  	</div>
+		  <% end %>
+	    <%= flash_messages %>
+	    <%= yield %>
+	  </div>
   <%= render "layouts/footer" %>
 </div>
