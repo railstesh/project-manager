@@ -2,7 +2,9 @@
 	<%= simple_form_for @project do |form| %>
 	  <%= form.input :title %>
 	  <%= form.input :client_name %>
-	  <%= form.submit "Save", class: 'btn btn-success' %>
-	  <%= link_to 'Back', projects_path, method: :get, class: "btn btn-success"%>
+	  	<div class="text-right">
+		  <%= form.submit "Save", class: 'btn btn-success' %>
+		  <%= link_to 'Back', projects_path, method: :get, class: "btn btn-success"%>
+		</div>
 	<% end %>
 </div>

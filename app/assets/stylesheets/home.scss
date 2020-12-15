@@ -1,6 +1,11 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/*default css */
+.navbar-header a:hover{
+  color: #fff;
+  text-decoration: none;
+}
 .navbar-right{
   margin-right: 0 !important;
 }
@@ -18,7 +23,17 @@
   }
   .right-section{
     width: calc(100% - 150px);
-    margin-left: 200px;
+    margin-left: 150px;
+    padding: 0 25px;
+    .right-top-section{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      h3{
+        margin: 0;
+      }
+    }
   }
 }
 .navbar-header{
@@ -37,10 +52,14 @@
   background-color: #000 !important;
 }
 .sidebar{
-  ul,li:first-child {
-    margin-top: 20px;
-  }
-  ul,li{
-    margin-top: 10px;
+  ul{
+    padding-left: 15px;
+    li:first-child {
+      margin-top: 20px;
+    }
+    li{
+      margin-top: 10px;
+      list-style: none;
+    }
   }
 }
