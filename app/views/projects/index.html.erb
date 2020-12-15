@@ -1,11 +1,9 @@
 <div class="right-section">
   <div class="right-top-section">
-    <h3 class="mt-4 d-flex justify-content-center"> List of Projects </h3>
-    <div class="pr-5">
-      <%= link_to 'Create', new_project_path, method: :get, class: "btn btn-primary float-right mb-5"%>
-    </div>
+    <h3> List of Projects </h3>
+    <%= link_to 'Create', new_project_path, method: :get, class: "btn btn-primary"%>
   </div>
-  <div class="ml-3 mr-3">
+  <div>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -22,6 +20,7 @@
             <td><%= project.client_name %></td>
             <td><%= project.status %></td>
             <td>
+              <%= link_to 'View', project_path(project) %>
         			<%= link_to 'Edit', edit_project_path(project) %>
         			<%= link_to 'Delete', project_path(project), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'color-red' %>
             </td>

@@ -1,15 +1,16 @@
-<div class = "mt-4 pl-4">	
-	<%= simple_form_for @project do |form| %>
-	  <%= form.input :title %>
-	  <%= form.input :client_name %>
-	  <%= form.input :profile %>
-	  <%= form.input :work_limit %>
-	  <%= form.input :technology %>
-	  <%= form.input :invoice_type, collection: Project.invoice_types.keys, prompt: 'Select Invoice Type' %>
-	  <%= form.input :active_discription %>
-	  	<div class="text-right">
-		  <%= form.submit "Save", class: 'btn btn-success' %>
-		  <%= link_to 'Back', projects_path, method: :get, class: "btn btn-success"%>
-		</div>
-	<% end %>
+<div class = "mt-4 pl-4"> 
+  <%= simple_form_for @project do |form| %>
+    <%= form.input :title %>
+    <%= form.input :client_name %>
+    <%= form.input :profile %>
+    <%= form.input :work_limit %>
+    <%= form.input :technology %>
+    <%= form.input :invoice_type, collection: Project.invoice_types.keys, prompt: 'Select Invoice Type' %>
+    <%= form.input :status, collection: Project.statuses.keys, prompt: 'Select Status' %>
+    <%= form.input :active_discription %>
+      <div class="text-right">
+      <%= form.submit "Save", class: 'btn btn-success' %>
+      <%= link_to 'Back', projects_path, method: :get, class: "btn btn-success"%>
+    </div>
+  <% end %>
 </div>

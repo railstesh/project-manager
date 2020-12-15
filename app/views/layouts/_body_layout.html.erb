@@ -5,8 +5,10 @@
         <div class="sidebar">
           <ul>
             <li><%= link_to "Dashboard", root_path %></li>
-            <li><%= link_to "Projects", projects_path %></li>
-            <li><%= link_to "Assigned", assigns_path %></li>
+            <li><%= link_to "Active Projects", projects_path(data: 'active') %></li>
+            <li><%= link_to "Inactive Projects", projects_path %></li>
+            <li><%= link_to "Active Assigned", assigns_path(data: 'active') %></li>
+            <li><%= link_to "Inactive Assigned", assigns_path %></li>
             <li><%= link_to "Employees", employees_path %></li>
           </ul>
         </div>

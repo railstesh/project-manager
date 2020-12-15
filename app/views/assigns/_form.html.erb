@@ -1,11 +1,14 @@
-<div class = "mt-4 pl-4">	
-	<%= simple_form_for @assign do |form| %>
-		<%= form.input :project_id, collection: Project.all, label: 'Project', input_html: { class: 'form-control col-sm-4' }, prompt: 'Select Project'%>
-	  <%= form.input :assigned %>
-	  <%= form.input :billing_hours %>
-	  <div class="text-right">
-		  <%= form.submit "Save", class: 'btn btn-success' %>
-		  <%= link_to 'Back', assigns_path, method: :get, class: "btn btn-success"%>
-		</div>
-	<% end %>
+<div class = "mt-4 pl-4"> 
+  <%= simple_form_for @assign do |form| %>
+    <%= form.input :project_id, collection: Project.all, label: 'Project', prompt: 'Select Project'%>
+    <%= form.input :employee_id, collection: Employee.all, label: 'Employee', prompt: 'Select Employee' %>
+    <%= form.input :assigned_as, collection: Assign.assigned_as.keys, prompt: 'Select Assigned_as' %>
+    <%= form.input :billing_hours %>
+    <%= form.input :status, collection: Assign.statuses.keys, prompt: 'Select Status' %>
+    <%= form.input :active_discription %>
+    <div class="text-right">
+      <%= form.submit "Save", class: 'btn btn-success' %>
+      <%= link_to 'Back', assigns_path, method: :get, class: "btn btn-success"%>
+    </div>
+  <% end %>
 </div>

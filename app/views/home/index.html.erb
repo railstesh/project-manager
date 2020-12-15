@@ -4,14 +4,18 @@
     <thead>
       <tr>
         <th>Project</th>
-        <th>Assigned</th>
+        <th>Assigned To</th>
+        <th>Assigned As</th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>
       <% @assigns.each do |assign| %>
         <tr>
           <td><%= assign.project.title %></td>
-          <td><%= assign.assigned %></td>
+          <td><%= assign.employee&.name %></td>
+          <td><%= assign.assigned_as %></td>
+          <td><%= assign.status %></td>
         </tr>
       <% end %>
     </tbody>

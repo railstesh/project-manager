@@ -20,6 +20,7 @@
             <td><%= employee.name %></td>
             <td><%= employee.email %></td>
             <td>
+              <%= link_to 'View', employee_path(employee) %>
         			<%= link_to 'Edit', edit_employee_path(employee) %>
         			<%= link_to 'Delete', employee_path(employee), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'color-red' %>
             </td>
