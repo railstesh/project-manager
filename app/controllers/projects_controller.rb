@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_action :load_project, only: %i[edit update destroy]
 
   def index
-    @projects = Project.all
+    @projects = Project.all.order(:status)
   end
 
   def new
@@ -30,13 +30,14 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project.destroy
+    @project.update(status: 1)
+    redirect_to projects_path
   end
 
   protected
 
   def project_params
-    params.require(:project).permit(:title, :client_name)
+    params.require(:project).permit(:title, :client_name, :profile, :work_limit, :technology, :invoice_type, :status, :active_discription, :inactive_discription)
   end
 
   def load_project
