@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-  before_action :load_employee, only: %i[edit update destroy]
+  before_action :load_employee, only: %i[edit update destroy show]
 
   def index
     @employees = Employee.all
@@ -32,6 +32,8 @@ class EmployeesController < ApplicationController
   def destroy
     @employee.destroy
   end
+
+  def show; end
 
   protected
 

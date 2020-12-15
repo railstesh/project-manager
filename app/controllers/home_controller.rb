@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-  	@assigns = Assign.all
+    @assigns = Assign.all
   end
 end

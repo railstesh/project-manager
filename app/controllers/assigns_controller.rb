@@ -1,8 +1,12 @@
 class AssignsController < ApplicationController
-  before_action :load_assign, only: %i[edit update destroy]
+  before_action :load_assign, only: %i[edit update destroy show]
 
   def index
-    @assigns = Assign.all
+    if params[:data] == 'active'
+      @assigns = Assign.all.where(status: 0)
+    else
+      @assigns = Assign.all.where(status: 1)
+    end
   end
 
   def new
@@ -29,13 +33,16 @@ class AssignsController < ApplicationController
   end
 
   def destroy
-    @assign.destroy
+    @assign.update(status: 1)
+    redirect_to assigns_path
   end
+
+  def show; end
 
   protected
 
   def assign_params
-    params.require(:assign).permit(:user_id, :project_id, :assigned, :billing_hours)
+    params.require(:assign).permit(:user_id, :project_id, :assigned, :billing_hours, :assigned_as, :status, :active_discription, :inactive_discription, :employee_id)
   end
 
   def load_assign

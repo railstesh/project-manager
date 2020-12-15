@@ -1,8 +1,12 @@
 class ProjectsController < ApplicationController
-  before_action :load_project, only: %i[edit update destroy]
+  before_action :load_project, only: %i[edit update destroy show]
 
   def index
-    @projects = Project.all.order(:status)
+    if params[:data] == 'active'
+      @projects = Project.all.where(status: 0)
+    else
+      @projects = Project.all.where(status: 1)
+    end
   end
 
   def new
@@ -33,6 +37,8 @@ class ProjectsController < ApplicationController
     @project.update(status: 1)
     redirect_to projects_path
   end
+
+  def show; end
 
   protected
 
