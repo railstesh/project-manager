@@ -1,0 +1,9 @@
+<p class="nested-fields">
+  <%= f.hidden_field :project_id, value: @project.id %>
+  <%= f.input :employee_id, collection: Employee.all, label: 'Employee', prompt: 'Select Employee' %>
+  <%= f.input :assigned_as, collection: Assign.assigned_as.keys, prompt: 'Select Assigned_as' %>
+  <%= f.input :billing_hours %>
+  <%= f.input :status, collection: Assign.statuses.keys, prompt: 'Select Status' %>
+  <%= f.input :active_discription %>
+  <%#= link_to_remove_association fa_icon('trash 2x'), f %>
+</p>
