@@ -44,6 +44,7 @@ gem 'font-awesome-rails'
 gem 'figaro'
 gem 'simple_form'
 gem "paranoia"
+gem "cocoon"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
