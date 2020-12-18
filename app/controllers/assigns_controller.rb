@@ -2,11 +2,7 @@ class AssignsController < ApplicationController
   before_action :load_assign, only: %i[edit update destroy show]
 
   def index
-    if params[:data] == 'active'
-      @assigns = Assign.all.where(status: 0)
-    else
-      @assigns = Assign.all.where(status: 1)
-    end
+    @assigns = Assign.without_deleted
   end
 
   def new
@@ -34,10 +30,23 @@ class AssignsController < ApplicationController
 
   def destroy
     @assign.update(status: 1)
+    @assign.destroy
     redirect_to assigns_path
   end
 
   def show; end
+
+  def inactive
+    @assigns = Assign.only_deleted
+  end
+
+  def restore
+    @assigns = Assign.only_deleted
+    @assign = @assigns.find(params[:id])
+    @assign.restore
+    @assign.update(status: 0)
+    redirect_to inactive_assign_path
+  end
 
   protected
 

@@ -2,11 +2,7 @@ class ProjectsController < ApplicationController
   before_action :load_project, only: %i[edit update destroy show]
 
   def index
-    if params[:data] == 'active'
-      @projects = Project.all.where(status: 0)
-    else
-      @projects = Project.all.where(status: 1)
-    end
+    @projects = Project.without_deleted
   end
 
   def new
@@ -35,10 +31,23 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.update(status: 1)
+    @project.destroy
     redirect_to projects_path
   end
 
   def show; end
+
+  def inactive
+    @projects = Project.only_deleted
+  end
+
+  def restore
+    @projects = Project.only_deleted
+    @project = @projects.find(params[:id])
+    @project.restore
+    @project.update(status: 0)
+    redirect_to inactive_project_path
+  end
 
   protected
 

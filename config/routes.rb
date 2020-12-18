@@ -3,7 +3,21 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get 'home/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :projects
-  resources :assigns
+  resources :projects do
+    collection do
+      get :inactive
+    end
+    member do
+      get :restore
+    end
+  end
+  resources :assigns do
+    collection do
+      get :inactive
+    end
+    member do
+      get :restore
+    end
+  end
   resources :employees
 end
