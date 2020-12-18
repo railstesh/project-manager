@@ -1,9 +1,6 @@
 <div class="right-section">
   <div class="right-top-section">
-    <h3 class="mt-4 d-flex justify-content-center"> List of Active Assign Projects </h3>
-    <div class="pr-5">
-      <%= link_to 'Create', new_assign_path, method: :get, class: "btn btn-primary float-right mb-5"%>
-    </div>
+    <h3 class="mt-4 d-flex justify-content-center"> List of Inactive Assign Projects </h3>
   </div>
   <div class="ml-3 mr-3">
     <table class="table table-striped">
@@ -26,7 +23,7 @@
             <td>
               <%= link_to 'View', assign_path(assign) %>
         			<%= link_to 'Edit', edit_assign_path(assign) %>
-        			<%= link_to 'Delete', assign_path(assign), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'color-red' %>
+        			<%= link_to 'Restore', restore_assign_path(assign), remote: true, method: :get, data: { confirm: "Are you sure want to restore?" }, class: 'color-red' %>
             </td>
           </tr>
         <% end %>

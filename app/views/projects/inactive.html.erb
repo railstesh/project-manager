@@ -1,7 +1,6 @@
 <div class="right-section">
   <div class="right-top-section">
-    <h3> List of Active Projects </h3>
-    <%= link_to 'Create', new_project_path, method: :get, class: "btn btn-primary"%>
+    <h3> List of Inactive Projects </h3>
   </div>
   <div>
     <table class="table table-striped">
@@ -21,8 +20,8 @@
             <td><%= project.status %></td>
             <td>
               <%= link_to 'View', project_path(project) %>
-        			<%= link_to 'Edit', edit_project_path(project) %>
-        			<%= link_to 'Delete', project_path(project), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'color-red' %>
+              <%= link_to 'Edit', edit_project_path(project) %>
+              <%= link_to 'Restore', restore_project_path(project), remote: true, method: :get, data: { confirm: "Are you sure want to restore?" }, class: 'color-red' %>
             </td>
           </tr>
         <% end %>
