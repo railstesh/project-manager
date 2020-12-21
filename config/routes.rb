@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       get :inactive
     end
     member do
-      get :restore
+      delete :restore
     end
   end
   resources :assigns do
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       get :inactive
     end
     member do
-      get :restore
+      delete :restore
     end
   end
   resources :employees

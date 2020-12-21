@@ -19,7 +19,7 @@
       <tbody>
         <% @assigns.each do |assign| %>
           <tr>
-            <td><%= assign.project.title %></td>
+            <td><%= assign.project&.title %></td>
             <td><%= assign.employee&.name %></td>
             <td><%= assign.billing_hours %></td>
             <td><%= assign.status %></td>

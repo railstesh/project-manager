@@ -16,14 +16,14 @@
       <tbody>
         <% @assigns.each do |assign| %>
           <tr>
-            <td><%= assign.project.title %></td>
+            <td><%= assign.project&.title %></td>
             <td><%= assign.employee&.name %></td>
             <td><%= assign.billing_hours %></td>
             <td><%= assign.status %></td>
             <td>
               <%= link_to 'View', assign_path(assign) %>
         			<%= link_to 'Edit', edit_assign_path(assign) %>
-        			<%= link_to 'Restore', restore_assign_path(assign), remote: true, method: :get, data: { confirm: "Are you sure want to restore?" }, class: 'color-red' %>
+        			<%= link_to 'Restore', restore_assign_path(assign), remote: true, method: :delete, data: { confirm: "Are you sure want to restore?" }, class: 'color-red' %>
             </td>
           </tr>
         <% end %>
