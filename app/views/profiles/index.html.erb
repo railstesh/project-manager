@@ -1,0 +1,30 @@
+<div class="right-section">
+  <div class="right-top-section">
+    <h3> List of Profiles </h3>
+    <div>
+      <%= link_to 'Create', new_profile_path, method: :get, class: "btn btn-primary"%>
+    </div>
+  </div>
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @profiles.each do |profile| %>
+          <tr>
+            <td><%= profile.name %></td>
+            <td>
+              <%= link_to 'View', profile_path(profile) %>
+        			<%= link_to 'Edit', edit_profile_path(profile) %>
+        			<%= link_to 'Delete', profile_path(profile), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'color-red' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
