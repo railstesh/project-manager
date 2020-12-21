@@ -5,12 +5,10 @@
   <ul>
     <li> Project Name: <%= @project.title %> </li>
     <li> Client Name: <%= @project.client_name %> </li>
-    <li> Profile: <%= @project.profile %> </li>
-    <li> Work Limit: <%= @project.work_limit %> </li>
-    <li> Technology: <%= @project.technology %> </li>
+    <li> Profile: <%= @project.profile.name %> </li>
+    <li> Technology: <%= @project.technology.name %> </li>
     <li> Invoice Type: <%= @project.invoice_type %> </li>
-    <li> Status: <%= @project.status %> </li>
-    <li> Description: <%= @project.active_discription %> </li>
+    <li> Work Limit: <%= @project.work_limit %> </li>
   </ul>
 
   <h3> Assign User: </h3>
@@ -22,7 +20,7 @@
     <%= link_to_add_association 'Add', f, :assigns, data: {"association-insertion-node" => "p.assign", "association-insertion-method" => "append"} %>
     <div class="text-right">
       <%= f.submit "Save", class: 'btn btn-success' %>
-      <%= link_to 'Back', assigns_path, method: :get, class: "btn btn-success"%>
+      <%= link_to 'Back', projects_path, method: :get, class: "btn btn-success"%>
     </div>
   <% end %>
 </div>

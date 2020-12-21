@@ -8,7 +8,6 @@
         <tr>
           <th>Name</th>
           <th>Client Name</th>
-          <th>Status</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -17,7 +16,6 @@
           <tr>
             <td><%= project.title %></td>
             <td><%= project.client_name %></td>
-            <td><%= project.status %></td>
             <td>
               <%= link_to 'View', project_path(project) %>
               <%= link_to 'Edit', edit_project_path(project) %>
