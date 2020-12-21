@@ -45,6 +45,7 @@ gem 'figaro'
 gem 'simple_form'
 gem "paranoia"
 gem "cocoon"
+gem "select2-rails"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

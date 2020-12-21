@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require cocoon
+//= require select2
 //= require_tree .
 
 $(function() {
@@ -28,4 +29,11 @@ $(function() {
         };
     })(this));
     return setTimeout(flashCallback, 2000);
+});
+
+$(document).on('ready', function(){
+  $(".select2").select2({
+    allowClear: true,
+    theme: "bootstrap"
+  });
 });
