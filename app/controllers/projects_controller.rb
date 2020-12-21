@@ -30,7 +30,6 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project.update(status: 1)
     @project.destroy
     redirect_to projects_path
   end
@@ -45,14 +44,13 @@ class ProjectsController < ApplicationController
     @projects = Project.only_deleted
     @project = @projects.find(params[:id])
     @project.restore
-    @project.update(status: 0)
     redirect_to inactive_project_path
   end
 
   protected
 
   def project_params
-    params.require(:project).permit(:title, :client_name, :profile, :work_limit, :technology, :invoice_type, :status, :active_discription, :inactive_discription, assigns_attributes: [:user_id, :project_id, :assigned, :billing_hours, :assigned_as, :status, :active_discription, :inactive_discription, :employee_id, :_destroy])
+    params.require(:project).permit(:title, :client_name, :profile_id, :work_limit, :technology_id, :invoice_type, assigns_attributes: [:user_id, :project_id, :assigned, :billing_hours, :assigned_as, :status, :active_discription, :inactive_discription, :employee_id, :_destroy])
   end
 
   def load_project
