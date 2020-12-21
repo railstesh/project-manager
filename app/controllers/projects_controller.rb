@@ -44,13 +44,13 @@ class ProjectsController < ApplicationController
     @projects = Project.only_deleted
     @project = @projects.find(params[:id])
     @project.restore
-    redirect_to inactive_project_path
+    redirect_to inactive_projects_path
   end
 
   protected
 
   def project_params
-    params.require(:project).permit(:title, :client_name, :profile_id, :work_limit, :technology_id, :invoice_type, assigns_attributes: [:user_id, :project_id, :assigned, :billing_hours, :assigned_as, :status, :active_discription, :inactive_discription, :employee_id, :_destroy])
+    params.require(:project).permit(:title, :client_name, :profile_id, :work_limit, :technology_id, :invoice_type, assigns_attributes: [:id, :user_id, :project_id, :assigned, :billing_hours, :assigned_as, :status, :active_discription, :inactive_discription, :employee_id, :_destroy])
   end
 
   def load_project

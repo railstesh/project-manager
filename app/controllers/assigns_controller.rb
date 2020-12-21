@@ -45,7 +45,7 @@ class AssignsController < ApplicationController
     @assign = @assigns.find(params[:id])
     @assign.restore
     @assign.update(status: 0)
-    redirect_to inactive_assign_path
+    redirect_to inactive_assigns_path
   end
 
   protected
