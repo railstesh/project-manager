@@ -1,11 +1,26 @@
 <div class = "mt-4 pl-4"> 
   <%= simple_form_for @project do |form| %>
-    <%= form.input :title %>
-    <%= form.input :client_name %>
-    <%= form.input :profile_id, collection: Profile.all, label: 'Profile', prompt: 'Select Profile', input_html: { class: 'select2' } %>
-    <%= form.input :technology_id, collection: Technology.all, label: 'Technology', prompt: 'Select Technology', input_html: { class: 'select2' } %>
-    <%= form.input :invoice_type, collection: Project.invoice_types.keys, prompt: 'Select Invoice Type', input_html: { class: 'select2' } %>
-    <%= form.input :work_limit %>
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <%= form.input :title %>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <%= form.input :client_name %>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12 select-tag">
+        <%= form.input :profile_id, collection: Profile.all, label: 'Profile', prompt: 'Select Profile', input_html: { class: 'select2' } %>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12">
+        <%= form.input :invoice_type, collection: Project.invoice_types.keys, prompt: 'Select Invoice Type', input_html: { class: 'select2' } %>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12">
+        <%= form.input :work_limit %>
+      </div>
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <%= form.input :technology_id, collection: Technology.all, label: 'Technology', prompt: 'Select Technology', input_html: { class: 'select2' } %>
+      </div>
+    </div>
+
     <div class="text-right">
       <%= form.submit "Save", class: 'btn btn-success' %>
       <%= link_to 'Back', projects_path, method: :get, class: "btn btn-success"%>

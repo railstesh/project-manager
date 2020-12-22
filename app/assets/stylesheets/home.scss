@@ -16,7 +16,7 @@
     width: 150px;
     float: left;
     background-color: pink;
-    min-height: 270px;
+    min-height: 240px;
     a{
       color: #000;
     }
@@ -55,11 +55,38 @@
   ul{
     padding-left: 15px;
     li:first-child {
-      margin-top: 20px;
+      margin-top: 10px;
     }
     li{
+      margin-top: 5px;
+      list-style: none;
+    }
+  }
+}
+.select-tag select{
+  width: 100%;
+}
+.show-bar{
+  ul{
+    padding-left: 0px;
+    li{
+      margin-left:0px;
       margin-top: 10px;
       list-style: none;
     }
+  }
+}
+.add-assign{
+  margin-top: 19px;
+}
+.fa-2x {
+  padding-top: 26px;
+}
+.add-button{
+  position: relative;
+  a {
+    position: absolute;
+    top:  -37px;
+    right: 0;
   }
 }
