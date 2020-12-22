@@ -8,7 +8,7 @@
         <li> Project Name: <%= @project.title %> </li>
         <li> Client Name: <%= @project.client_name %> </li>
         <li> Profile: <%= @project.profile.name %> </li>
-        <li> Technology: <%= @project.technology.name %> </li>
+        <li> Technologies: <%= @project.technologies.join(', ') %> </li>
         <li> Invoice Type: <%= @project.invoice_type %> </li>
         <li> Work Limit: <%= @project.work_limit %> </li>
       </ul>

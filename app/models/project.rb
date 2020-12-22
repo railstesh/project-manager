@@ -4,7 +4,6 @@ class Project < ApplicationRecord
   has_many :assigns
   has_many :descriptions, as: :descriptable
   belongs_to :profile
-  belongs_to :technology
 
   enum invoice_type: { Weekly: 0, Monthly: 1 }
 
