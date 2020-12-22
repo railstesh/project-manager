@@ -51,7 +51,7 @@ class AssignsController < ApplicationController
   protected
 
   def assign_params
-    params.require(:assign).permit(:user_id, :project_id, :assigned, :billing_hours, :assigned_as, :status, :active_discription, :inactive_discription, :employee_id)
+    params.require(:assign).permit(:user_id, :project_id, :billing_hours, :assigned_as, :employee_id)
   end
 
   def load_assign

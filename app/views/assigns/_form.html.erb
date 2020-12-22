@@ -4,8 +4,6 @@
     <%= form.input :employee_id, collection: Employee.all, label: 'Employee', prompt: 'Select Employee', input_html: { class: 'select2' } %>
     <%= form.input :assigned_as, collection: Assign.assigned_as.keys, prompt: 'Select Assigned_as', input_html: { class: 'select2' } %>
     <%= form.input :billing_hours %>
-    <%= form.input :status, collection: Assign.statuses.keys, prompt: 'Select Status', input_html: { class: 'select2' } %>
-    <%= form.input :active_discription %>
     <div class="text-right">
       <%= form.submit "Save", class: 'btn btn-success' %>
       <%= link_to 'Back', assigns_path, method: :get, class: "btn btn-success"%>

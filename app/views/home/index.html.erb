@@ -6,7 +6,6 @@
         <th>Project</th>
         <th>Assigned To</th>
         <th>Assigned As</th>
-        <th>Status</th>
       </tr>
     </thead>
     <tbody>
@@ -15,7 +14,6 @@
           <td><%= assign.project&.title %></td>
           <td><%= assign.employee&.name %></td>
           <td><%= assign.assigned_as %></td>
-          <td><%= assign.status %></td>
         </tr>
       <% end %>
     </tbody>

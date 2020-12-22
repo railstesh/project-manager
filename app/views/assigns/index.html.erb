@@ -12,7 +12,6 @@
           <th>Project</th>
           <th>Assigned</th>
           <th>Billing Hrs</th>
-          <th>Status</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -22,7 +21,6 @@
             <td><%= assign.project&.title %></td>
             <td><%= assign.employee&.name %></td>
             <td><%= assign.billing_hours %></td>
-            <td><%= assign.status %></td>
             <td>
               <%= link_to 'View', assign_path(assign) %>
         			<%= link_to 'Edit', edit_assign_path(assign) %>

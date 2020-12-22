@@ -3,7 +3,5 @@
   <%= f.input :employee_id, collection: Employee.all, label: 'Employee', prompt: 'Select Employee', input_html: { class: 'select2' } %>
   <%= f.input :assigned_as, collection: Assign.assigned_as.keys, prompt: 'Select Assigned_as', input_html: { class: 'select2' } %>
   <%= f.input :billing_hours %>
-  <%= f.input :status, collection: Assign.statuses.keys, prompt: 'Select Status', input_html: { class: 'select2' } %>
-  <%= f.input :active_discription %>
   <%= link_to_remove_association fa_icon('trash 2x'), f %>
 </div>

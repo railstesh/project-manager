@@ -9,7 +9,6 @@
           <th>Project</th>
           <th>Assigned</th>
           <th>Billing Hrs</th>
-          <th>Status</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -19,7 +18,6 @@
             <td><%= assign.project&.title %></td>
             <td><%= assign.employee&.name %></td>
             <td><%= assign.billing_hours %></td>
-            <td><%= assign.status %></td>
             <td>
         			<%= link_to 'Restore', restore_assign_path(assign), remote: true, method: :delete, data: { confirm: "Are you sure want to restore?" }, class: 'color-red' %>
             </td>
