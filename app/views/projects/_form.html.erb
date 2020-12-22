@@ -19,6 +19,9 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <%= form.input :technology_id, collection: Technology.all, label: 'Technology', prompt: 'Select Technology', input_html: { class: 'select2' } %>
       </div>
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <%= form.input :technologies, collection: Technology.pluck(:name), include_hidden: false , label: 'Technology', prompt: 'Select Technology', input_html: { class: 'select2', multiple: 'multiple' } %>
+      </div>
     </div>
 
     <div class="text-right">
