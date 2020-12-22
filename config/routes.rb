@@ -19,7 +19,14 @@ Rails.application.routes.draw do
       delete :restore
     end
   end
-  resources :employees
+  resources :employees do
+    collection do
+      get :inactive
+    end
+    member do
+      delete :restore
+    end
+  end
   resources :profiles
   resources :technologies
 end

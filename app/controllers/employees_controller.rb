@@ -2,7 +2,7 @@ class EmployeesController < ApplicationController
   before_action :load_employee, only: %i[edit update destroy show]
 
   def index
-    @employees = Employee.all
+    @employees = Employee.without_deleted
   end
 
   def new
@@ -31,9 +31,21 @@ class EmployeesController < ApplicationController
 
   def destroy
     @employee.destroy
+    redirect_to employees_path
   end
 
   def show; end
+
+  def inactive
+    @employees = Employee.only_deleted
+  end
+
+  def restore
+    @employees = Employee.only_deleted
+    @employee = @employees.find(params[:id])
+    @employee.restore
+    redirect_to inactive_employees_path
+  end
 
   protected
 

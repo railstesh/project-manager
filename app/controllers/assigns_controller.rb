@@ -29,7 +29,6 @@ class AssignsController < ApplicationController
   end
 
   def destroy
-    @assign.update(status: 1)
     @assign.destroy
     redirect_to assigns_path
   end
@@ -44,7 +43,6 @@ class AssignsController < ApplicationController
     @assigns = Assign.only_deleted
     @assign = @assigns.find(params[:id])
     @assign.restore
-    @assign.update(status: 0)
     redirect_to inactive_assigns_path
   end
 

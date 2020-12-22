@@ -1,9 +1,6 @@
 <div class="right-section">
   <div class="right-top-section">
-    <h3> List of Active Employees </h3>
-    <div>
-      <%= link_to 'Create', new_employee_path, method: :get, class: "btn btn-primary"%>
-    </div>
+    <h3> List of Inactive Employees </h3>
   </div>
   <div>
     <table class="table table-striped">
@@ -20,9 +17,7 @@
             <td><%= employee.name %></td>
             <td><%= employee.email %></td>
             <td>
-              <%= link_to 'View', employee_path(employee) %>
-        			<%= link_to 'Edit', edit_employee_path(employee) %>
-        			<%= link_to 'Delete', employee_path(employee), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'color-red' %>
+        			<%= link_to 'Restore', restore_employee_path(employee), remote: true, method: :delete, data: { confirm: "Are you sure want to restore?" }, class: 'color-red' %>
             </td>
           </tr>
         <% end %>
