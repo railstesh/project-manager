@@ -1,9 +1,9 @@
 <div class="nested-fields">
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.input :employee_id, collection: Employee.all, label: 'Employee', prompt: 'Select Employee' %>
-  <%= f.input :assigned_as, collection: Assign.assigned_as.keys, prompt: 'Select Assigned_as' %>
+  <%= f.input :employee_id, collection: Employee.all, label: 'Employee', prompt: 'Select Employee', input_html: { class: 'select2' } %>
+  <%= f.input :assigned_as, collection: Assign.assigned_as.keys, prompt: 'Select Assigned_as', input_html: { class: 'select2' } %>
   <%= f.input :billing_hours %>
-  <%= f.input :status, collection: Assign.statuses.keys, prompt: 'Select Status' %>
+  <%= f.input :status, collection: Assign.statuses.keys, prompt: 'Select Status', input_html: { class: 'select2' } %>
   <%= f.input :active_discription %>
   <%= link_to_remove_association fa_icon('trash 2x'), f %>
 </div>

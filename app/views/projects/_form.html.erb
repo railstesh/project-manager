@@ -3,8 +3,8 @@
     <%= form.input :title %>
     <%= form.input :client_name %>
     <%= form.input :profile_id, collection: Profile.all, label: 'Profile', prompt: 'Select Profile', input_html: { class: 'select2' } %>
-    <%= form.input :technology_id, collection: Technology.all, label: 'Technology', prompt: 'Select Technology' %>
-    <%= form.input :invoice_type, collection: Project.invoice_types.keys, prompt: 'Select Invoice Type' %>
+    <%= form.input :technology_id, collection: Technology.all, label: 'Technology', prompt: 'Select Technology', input_html: { class: 'select2' } %>
+    <%= form.input :invoice_type, collection: Project.invoice_types.keys, prompt: 'Select Invoice Type', input_html: { class: 'select2' } %>
     <%= form.input :work_limit %>
     <div class="text-right">
       <%= form.submit "Save", class: 'btn btn-success' %>
