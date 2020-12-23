@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params) 
 
     if @project.save
+      @project.descriptions.create(title: "#{@project.title} is created on #{@project.created_at}")
       redirect_to projects_path
     else
       render :new
@@ -23,6 +24,9 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update(project_params)
+      @project.assigns.each do |assign|
+        @project.descriptions.create(title: "#{@project.title} is assign to #{assign.employee.name} on #{assign.created_at} as #{assign.assigned_as}")
+      end
       redirect_to projects_path
     else
       render :new
