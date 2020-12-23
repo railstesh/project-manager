@@ -2,7 +2,7 @@ class EmployeesController < ApplicationController
   before_action :load_employee, only: %i[edit update destroy show]
 
   def index
-    @employees = Employee.without_deleted
+    @employees = Employee.without_deleted.paginate(page: params[:page], per_page: 9)
   end
 
   def new
@@ -37,7 +37,7 @@ class EmployeesController < ApplicationController
   def show; end
 
   def inactive
-    @employees = Employee.only_deleted
+    @employees = Employee.only_deleted.paginate(page: params[:page], per_page: 9)
   end
 
   def restore

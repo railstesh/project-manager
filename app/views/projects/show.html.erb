@@ -40,10 +40,11 @@
         <h4> Project Description:</h4>
       </div>
       <ol>
-        <% @project.descriptions.each do |des| %>
+        <% @descriptions.each do |des| %>
           <li> <%= des.title %> </li>
         <% end %>
       </ol>
+      <%= will_paginate @descriptions %>
     </div>
   </div>
 </div>

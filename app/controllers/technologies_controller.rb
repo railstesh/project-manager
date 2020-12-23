@@ -2,7 +2,7 @@ class TechnologiesController < ApplicationController
   before_action :load_technology, only: %i[edit update destroy show]
 
   def index
-    @technologies = Technology.all
+    @technologies = Technology.all.paginate(page: params[:page], per_page: 9)
   end
 
   def new

@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_action :load_project, only: %i[edit update destroy show]
 
   def index
-    @projects = Project.without_deleted
+    @projects = Project.without_deleted.paginate(page: params[:page], per_page: 9)
   end
 
   def new
@@ -38,10 +38,12 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
-  def show; end
+  def show
+    @descriptions = @project.descriptions.paginate(page: params[:page], per_page: 6)
+  end
 
   def inactive
-    @projects = Project.only_deleted
+    @projects = Project.only_deleted.paginate(page: params[:page], per_page: 9)
   end
 
   def restore

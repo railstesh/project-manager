@@ -2,7 +2,7 @@ class AssignsController < ApplicationController
   before_action :load_assign, only: %i[edit update destroy show]
 
   def index
-    @assigns = Assign.without_deleted
+    @assigns = Assign.without_deleted.paginate(page: params[:page], per_page: 9)
   end
 
   def new
@@ -36,7 +36,7 @@ class AssignsController < ApplicationController
   def show; end
 
   def inactive
-    @assigns = Assign.only_deleted
+    @assigns = Assign.only_deleted.paginate(page: params[:page], per_page: 9)
   end
 
   def restore
