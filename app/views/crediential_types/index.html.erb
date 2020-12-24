@@ -1,0 +1,31 @@
+<div class="right-section">
+  <div class="right-top-section">
+    <h3> List of Crediential-Type </h3>
+    <div>
+      <%= link_to 'Create', new_crediential_type_path, method: :get, class: "btn btn-primary"%>
+    </div>
+  </div>
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @crediential_types.each do |type| %>
+          <tr>
+            <td><%= type.name %></td>
+            <td>
+              <%= link_to 'View', crediential_type_path(type) %>
+              <%= link_to 'Edit', edit_crediential_type_path(type) %>
+              <%= link_to 'Delete', crediential_type_path(type), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'color-red' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate @crediential_types %>
+  </div>
+</div>

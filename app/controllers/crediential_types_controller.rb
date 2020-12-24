@@ -31,6 +31,7 @@ class CredientialTypesController < ApplicationController
 
   def destroy
     @crediential_type.destroy
+    redirect_to crediential_types_path
   end
 
   def show; end
