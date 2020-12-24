@@ -31,6 +31,7 @@ class ProfilesController < ApplicationController
 
   def destroy
     @profile.destroy
+    redirect_to profiles_path
   end
 
   def show; end
