@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
       @project.assigns.each do |assign|
         @project.descriptions.create(title: "#{@project.title} is assign to #{assign.employee.name} on #{assign.created_at} as #{assign.assigned_as}")
       end
-      redirect_to projects_path
+      redirect_to project_path(@project)
     else
       render :new
     end
