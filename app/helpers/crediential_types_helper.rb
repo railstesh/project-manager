@@ -1,0 +1,2 @@
+module CredientialTypesHelper
+end

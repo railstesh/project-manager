@@ -29,4 +29,5 @@ Rails.application.routes.draw do
   end
   resources :profiles
   resources :technologies
+  resources :crediential_types
 end
