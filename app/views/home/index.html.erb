@@ -4,19 +4,19 @@
     <thead>
       <tr>
         <th>Project</th>
-        <th>Assigned To</th>
-        <th>Assigned As</th>
+        <th>Profile</th>
+        <th>Technology</th>
       </tr>
     </thead>
     <tbody>
-      <% @assigns.each do |assign| %>
+      <% @projects.each do |project| %>
         <tr>
-          <td><%= assign.project&.title %></td>
-          <td><%= assign.employee&.name %></td>
-          <td><%= assign.assigned_as %></td>
+          <td><%= project.title %></td>
+          <td><%= project.profile.name %></td>
+          <td><%= project.technologies.join(', ') %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <%= will_paginate @assigns %>
+  <%= will_paginate @projects %>
 </div>
