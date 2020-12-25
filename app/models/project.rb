@@ -2,6 +2,7 @@ class Project < ApplicationRecord
   acts_as_paranoid
   
   has_many :assigns
+  has_many :credientials
   has_many :descriptions, as: :descriptable
   belongs_to :profile
 
