@@ -1,0 +1,35 @@
+<div class="right-section">
+  <div class="right-top-section">
+    <h3> List of Credientials </h3>
+    <div>
+      <%= link_to 'Create', new_crediential_path, method: :get, class: "btn btn-primary"%>
+    </div>
+  </div>
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Crediential Type</th>
+          <th>Project</th>
+          <th>Profile</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @credientials.each do |crediential| %>
+          <tr>
+            <td><%= crediential.crediential_type.name %></td>
+            <td><%= crediential.project.title %></td>
+            <td><%= crediential.project.profile.name %></td>
+            <td>
+              <%= link_to 'View', crediential_path(crediential) %>
+              <%= link_to 'Edit', edit_crediential_path(crediential) %>
+              <%= link_to 'Delete', crediential_path(crediential), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'color-red' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate @crediential_types %>
+  </div>
+</div>
