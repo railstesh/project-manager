@@ -3,7 +3,7 @@
     <%= form.input :name %>
     <%= form.input :email %>
     <%= form.input :stack %>
-    <%= form.input :skills %>
+    <%= form.input :skills, collection: Technology.pluck(:name), include_hidden: false , prompt: 'Select Skills', input_html: { class: 'select2', multiple: 'multiple' } %>
     <div class="text-right">
       <%= form.submit "Save", class: 'btn btn-success' %>
       <%= link_to 'Back', employees_path, method: :get, class: "btn btn-success"%>

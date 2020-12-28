@@ -11,6 +11,8 @@
         <tr>
           <th>Name</th>
           <th>Email</th>
+          <th>Skills</th>
+          <th>Status</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -19,6 +21,8 @@
           <tr>
             <td><%= employee.name %></td>
             <td><%= employee.email %></td>
+            <td><%= employee.skills.join(', ') %></td>
+            <td><%= employee.status %></td>
             <td>
               <%= link_to 'View', employee_path(employee) %>
         			<%= link_to 'Edit', edit_employee_path(employee) %>

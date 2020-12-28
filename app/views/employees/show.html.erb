@@ -6,6 +6,6 @@
     <li> Name: <%= @employee.name %> </li>
     <li> Email: <%= @employee.email %> </li>
     <li> Stack: <%= @employee.stack %> </li>
-    <li> Skills: <%= @employee.skills %> </li>
+    <li> Skills: <%= @employee.skills.join(', ') %> </li>
   </ul>
 </div>

@@ -50,7 +50,7 @@ class EmployeesController < ApplicationController
   protected
 
   def employee_params
-    params.require(:employee).permit(:name, :email, :stack, :skills)
+    params.require(:employee).permit(:name, :email, :stack, skills: [])
   end
 
   def load_employee
