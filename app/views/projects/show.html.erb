@@ -1,20 +1,34 @@
 <div class="right-section">
   <div class="row">
-    <div class="col-md-3 col-sm-3 col-xs-12 show-bar">
+    <div class="col-md-12 col-sm-12 col-xs-12 show-bar">
       <div class="right-top-section">
         <h4> Project Details:</h4>
       </div>
       <ul>
-        <li> Project Name: <%= @project.title %> </li>
-        <li> Client Name: <%= @project.client_name %> </li>
-        <li> Profile: <%= @project.profile.name %> </li>
-        <li> Technologies: <%= @project.technologies.join(', ') %> </li>
-        <li> Invoice Type: <%= @project.invoice_type %> </li>
-        <li> Work Limit: <%= @project.work_limit %> </li>
+        <div class="col-md-6 col-sm-6 col-xs-12 show-bar">
+          <li> Project Name: <%= @project.title %> </li>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 show-bar">
+          <li> Client Name: <%= @project.client_name %> </li>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 show-bar">
+          <li> Profile: <%= @project.profile.name %> </li>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 show-bar">
+          <li> Technologies: <%= @project.technologies.join(', ') %> </li>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 show-bar">
+          <li> Invoice Type: <%= @project.invoice_type %> </li>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 show-bar">
+          <li> Work Limit: <%= @project.work_limit %> </li>
+        </div>
       </ul>
     </div>
+  </div>
 
-    <div class="col-md-9 col-sm-9 col-xs-12">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
       <p>
         <a class="btn btn-primary" data-toggle="collapse" href="#toggle1" role="button" aria-expanded="false" aria-controls="toggle1">Assigned User</a>
         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#toggle2" aria-expanded="false" aria-controls="toggle2">Add User</button>
@@ -26,6 +40,7 @@
           <div class="collapse multi-collapse" id="toggle1">
             <div class="card card-body">
               <% if @project.assigns.present? %>
+                <h4> List of Assigned User Details:</h4>
                 <table class="table table-striped">
                   <thead>
                     <tr>
@@ -50,11 +65,13 @@
                 <h3> No Record Found </h3>
               <% end %>
             </div>
+            <hr>
           </div>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="collapse multi-collapse" id="toggle2">
             <div class="card card-body">
+              <h4> Add More User:</h4>
               <%= simple_form_for @project do |f| %>
                 <div class="row add-assign">
                   <div id="assigns">
@@ -73,16 +90,19 @@
                 </div>
               <% end %>
             </div>
+            <hr>
           </div>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="collapse multi-collapse" id="toggle3">
             <div class="card card-body">
+              <h4> Project Descriptions:</h4>
               <ol>
                 <% @descriptions.each do |des| %>
                   <li> <%= des.title %> </li>
                 <% end %>
               </ol>
+              <hr>
               <%= will_paginate @descriptions %>
             </div>
           </div>
@@ -91,6 +111,7 @@
           <div class="collapse multi-collapse" id="toggle4">
             <div class="card card-body">
               <% if @project.credientials.present? %>
+                <h4> Project Credentials:</h4>
                 <table class="table table-striped">
                   <thead>
                     <tr>
@@ -113,6 +134,7 @@
                     <% end %>
                   </tbody>
                 </table>
+                <hr>
               <% else %>
                 <h3> No Record Found </h3>
               <% end %>
