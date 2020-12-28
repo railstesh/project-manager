@@ -32,6 +32,7 @@
                       <th>Employee Name</th>
                       <th>Assigned As</th>
                       <th>Assigned Hrs</th>
+                      <th>Working Time</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -40,6 +41,7 @@
                         <td><%= assign.employee&.name %></td>
                         <td><%= assign.assigned_as %></td>
                         <td><%= assign.billing_hours %></td>
+                        <td><%= assign.calculate_time %></td>
                       </tr>
                     <% end %>
                   </tbody>
