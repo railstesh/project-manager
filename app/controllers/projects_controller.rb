@@ -7,6 +7,8 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @profile = Profile.new
+    @technology = Technology.new
   end
 
   def create

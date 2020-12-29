@@ -13,7 +13,10 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params) 
 
     if @profile.save
-      redirect_to profiles_path
+      respond_to do |format|
+        format.js
+        format.html { redirect_to profiles_path }
+      end
     else
       render :new
     end

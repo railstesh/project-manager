@@ -13,7 +13,10 @@ class TechnologiesController < ApplicationController
     @technology = Technology.new(technology_params) 
 
     if @technology.save
-      redirect_to technologies_path
+      respond_to do |format|
+        format.js
+        format.html { redirect_to technologies_path }
+      end
     else
       render :new
     end

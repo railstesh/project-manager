@@ -13,10 +13,9 @@ class CredientialTypesController < ApplicationController
     @crediential_type = CredientialType.new(crediential_type_params) 
 
     if @crediential_type.save
-      if request.xhr?
-        redirect_to new_crediential_path
-      else
-        redirect_to crediential_types_path
+      respond_to do |format|
+        format.js
+        format.html { redirect_to crediential_types_path }
       end
     else
       render :new
