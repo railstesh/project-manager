@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require select2
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require cocoon
-//= require select2
 //= require_tree .
 
 $(function() {
@@ -31,12 +31,14 @@ $(function() {
     return setTimeout(flashCallback, 2000);
 });
 
-$(document).on('ready', function(){
+$(document).ready(function() {
   $(".select2").select2({
     allowClear: true,
     theme: "bootstrap"
   });
+});
 
+$(document).on('ready', function(){
   var modal = document.getElementById("myModal");
   var btn = document.getElementById("myBtn");
   var span = document.getElementsByClassName("close")[0];
@@ -50,5 +52,21 @@ $(document).on('ready', function(){
     if (event.target == modal) {
       modal.style.display = "none";
     }
-  } 
+  }
+
+  var modal1 = document.getElementById("myModal1");
+  var btn1 = document.getElementById("myBtn1");
+  var span1 = document.getElementsByClassName("close1")[0];
+  btn1.onclick = function() {
+    modal1.style.display = "block";
+  }
+  span1.onclick = function() {
+    modal1.style.display = "none";
+    location.reload();
+  }
+  window.onclick = function(event) {
+    if (event.target == modal1) {
+      modal1.style.display = "none";
+    }
+  }
 });
