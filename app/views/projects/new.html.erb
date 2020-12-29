@@ -1,4 +1,37 @@
-<div class="right-section">
-  <h3> Create Project </h3>
+<div class="right-section">  
+  <div class="right-top-section">
+    <h3> Create Project </h3>
+    <div>
+      <button id="myBtn" class= "btn btn-primary">+ Profile</button>
+      <button id="myBtn1" class= "btn btn-primary">+ Technology</button>
+    </div>
+  </div>
   <%= render partial: 'form'%>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h4> Create Profile </h4>
+      <%= simple_form_for @profile, remote: true do |f| %>
+        <%= render partial: './profiles/form', locals: {form: f}%>
+        <div class="text-right">
+          <%= f.submit "Save", class: 'btn btn-success save-btn' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="myModal1" class="modal">
+    <div class="modal-content">
+      <span class="close1">&times;</span>
+      <h4> Create Technology </h4>
+      <%= simple_form_for @technology, remote: true do |f| %>
+        <%= render partial: './technologies/form', locals: {form: f}%>
+        <div class="text-right">
+          <%= f.submit "Save", class: 'btn btn-success save-btn' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
 </div>
