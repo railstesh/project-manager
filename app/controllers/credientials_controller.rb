@@ -7,6 +7,7 @@ class CredientialsController < ApplicationController
 
   def new
     @crediential = Crediential.new
+    @crediential_type = CredientialType.new
   end
 
   def create
