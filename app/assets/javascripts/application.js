@@ -31,7 +31,7 @@ $(function() {
     return setTimeout(flashCallback, 2000);
 });
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   $(".select2").select2({
     allowClear: true,
     theme: "bootstrap"
@@ -39,6 +39,32 @@ $(document).ready(function() {
 });
 
 $(document).on('ready', function(){
+  var reloadWithTurbolinks = (function () {
+    var scrollPosition
+
+    function reload () {
+      scrollPosition = [window.scrollX, window.scrollY]
+      Turbolinks.visit(window.location.toString(), { action: 'replace' })
+    }
+
+    document.addEventListener('turbolinks:load', function () {
+      if (scrollPosition) {
+        window.scrollTo.apply(window, scrollPosition)
+        scrollPosition = null
+      }
+    })
+
+    return reload
+  })()
+
+  $(".create-modal").click(function(e){
+    $( ".simple_form" ).each(function(fIndex, form) {
+      $(form).find(".form-control").each(function(index, input){
+        $(input).val('')
+      });
+    });
+  })
+
   var modal = document.getElementById("myModal");
   var btn = document.getElementById("myBtn");
   var span = document.getElementsByClassName("close")[0];
