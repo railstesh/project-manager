@@ -1,0 +1,4 @@
+<%= form.hidden_field :project_id, value: project %>
+<%= form.input :employee_id, collection: Employee.all, label: 'Employee', prompt: 'Select Employee', input_html: { class: 'select2' } %>
+<%= form.input :assigned_as, collection: Assign.assigned_as.keys, prompt: 'Select Assigned_as', input_html: { class: 'select2' } %>
+<%= form.input :billing_hours %>

@@ -27,11 +27,23 @@
     </div>
   </div>
 
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h4> Assign User: </h4>
+      <%= simple_form_for @assign, remote: true do |f| %>
+        <%= render partial: 'assign_form', locals: {form: f, project: @project.id}%>
+        <div class="text-right">
+          <%= f.submit "Save", class: 'btn btn-success save-btn' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
       <p>
         <a class="btn btn-primary" data-toggle="collapse" href="#toggle1" role="button" aria-expanded="false" aria-controls="toggle1">Assigned User</a>
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#toggle2" aria-expanded="false" aria-controls="toggle2">Add User</button>
         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#toggle3" aria-expanded="false" aria-controls="toggle3">Descriptions</button>
         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#toggle4" aria-expanded="false" aria-controls="toggle4">Credentials</button>
       </p>
@@ -40,7 +52,10 @@
           <div class="collapse multi-collapse" id="toggle1">
             <div class="card card-body">
               <% if @project.assigns.present? %>
-                <h4> List of Assigned User Details:</h4>
+                <div class="right-top-section">
+                  <h4> List of Assigned User Details:</h4>
+                  <button id="myBtn" class= "btn btn-primary">+ Assign </button>
+                </div>
                 <table class="table table-striped">
                   <thead>
                     <tr>
@@ -48,6 +63,7 @@
                       <th>Assigned As</th>
                       <th>Assigned Hrs</th>
                       <th>Working Time</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -57,37 +73,15 @@
                         <td><%= assign.assigned_as %></td>
                         <td><%= assign.billing_hours %></td>
                         <td><%= assign.calculate_time %></td>
+                        <td>
+                          <%= link_to 'Delete', assign_path(id: assign, project_id: @project), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'color-red' %>
+                        </td>
                       </tr>
                     <% end %>
                   </tbody>
                 </table>
               <% else %>
                 <h3> No Record Found </h3>
-              <% end %>
-            </div>
-            <hr>
-          </div>
-        </div>
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <div class="collapse multi-collapse" id="toggle2">
-            <div class="card card-body">
-              <h4> Add More User:</h4>
-              <%= simple_form_for @project do |f| %>
-                <div class="row add-assign">
-                  <div id="assigns">
-                    <%= f.simple_fields_for :assigns do |form| %>
-                      <%= render partial: 'assign_fields', locals: {f: form} %>
-                    <% end %>
-                    <div class="links text-right add-button">
-                      <%= link_to_add_association 'Add', f, :assigns %>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="text-right">
-                  <%= f.submit "Save", class: 'btn btn-success' %>
-                  <%= link_to 'Back', projects_path, method: :get, class: "btn btn-success"%>
-                </div>
               <% end %>
             </div>
             <hr>
@@ -102,8 +96,8 @@
                   <li> <%= des.title %> </li>
                 <% end %>
               </ol>
-              <hr>
               <%= will_paginate @descriptions %>
+              <hr>
             </div>
           </div>
         </div>
