@@ -43,6 +43,7 @@ class ProjectsController < ApplicationController
 
   def show
     @descriptions = @project.descriptions.paginate(page: params[:page], per_page: 6)
+    @assign = Assign.new
   end
 
   def inactive

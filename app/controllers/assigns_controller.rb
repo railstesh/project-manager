@@ -12,7 +12,11 @@ class AssignsController < ApplicationController
   def create
     @assign = current_user.assigns.new(assign_params)
     if @assign.save
-      redirect_to assigns_path
+      Employee.find(@assign.employee_id).update(status: 'Engage')
+      respond_to do |format|
+        format.js
+        format.html { redirect_to assigns_path }
+      end
     else
       render :new
     end
@@ -29,8 +33,12 @@ class AssignsController < ApplicationController
   end
 
   def destroy
+    Employee.find(@assign.employee_id).update(status: 'Available')
     @assign.destroy
-    redirect_to assigns_path
+    respond_to do |format|
+      format.js { redirect_to project_path(params[:project_id]) }
+      format.html { redirect_to assigns_path }
+    end
   end
 
   def show; end
