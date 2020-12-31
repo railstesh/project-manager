@@ -26,10 +26,6 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update(project_params)
-      @project.assigns.each do |assign|
-        Employee.find(assign.employee_id).update(status: 'Engage')
-        @project.descriptions.create(title: "#{@project.title} is assign to #{assign.employee.name} as #{assign.assigned_as}")
-      end
       redirect_to project_path(@project)
     else
       render :new

@@ -20,4 +20,8 @@ class Assign < ApplicationRecord
     month = (date2.year * 12 + date2.month) - (date1.year * 12 + date1.month)
     month.divmod(12)
   end
+
+  def update_status(employee_id, status)
+    Employee.find(employee_id).update(status: status)
+  end
 end

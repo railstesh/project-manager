@@ -12,7 +12,9 @@ class AssignsController < ApplicationController
   def create
     @assign = current_user.assigns.new(assign_params)
     if @assign.save
-      Employee.find(@assign.employee_id).update(status: 'Engage')
+      @assign.project.descriptions.create(title: "#{@assign.project.title} is assign to #{@assign.employee.name} as #{@assign.assigned_as}")
+
+      @assign.update_status(@assign.employee_id, 'Engage')
       respond_to do |format|
         format.js
         format.html { redirect_to assigns_path }
@@ -33,7 +35,8 @@ class AssignsController < ApplicationController
   end
 
   def destroy
-    Employee.find(@assign.employee_id).update(status: 'Available')
+    @assign.project.descriptions.create(title: "#{@assign.employee.name} is removed from #{@assign.project.title}")
+    @assign.update_status(@assign.employee_id, 'Available')
     @assign.destroy
     respond_to do |format|
       format.js { redirect_to project_path(params[:project_id]) }
