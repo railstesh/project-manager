@@ -18,9 +18,9 @@
             <td><%= project.title %></td>
             <td><%= project.client_name %></td>
             <td>
-              <%= link_to 'View', project_path(project) %>
-        			<%= link_to 'Edit', edit_project_path(project) %>
-        			<%= link_to 'Delete', project_path(project), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'color-red' %>
+              <%= link_to '', project_path(project), class: 'glyphicon glyphicon-eye-open' %>
+        			<%= link_to '', edit_project_path(project), class: 'glyphicon glyphicon-pencil' %>
+        			<%= link_to '', project_path(project), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'glyphicon glyphicon-trash' %>
             </td>
           </tr>
         <% end %>

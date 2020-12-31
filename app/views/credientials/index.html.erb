@@ -22,9 +22,9 @@
             <td><%= crediential.project.title %></td>
             <td><%= crediential.project.profile.name %></td>
             <td>
-              <%= link_to 'View', crediential_path(crediential) %>
-              <%= link_to 'Edit', edit_crediential_path(crediential) %>
-              <%= link_to 'Delete', crediential_path(crediential), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'color-red' %>
+              <%= link_to '', crediential_path(crediential), class: 'glyphicon glyphicon-eye-open' %>
+              <%= link_to '', edit_crediential_path(crediential), class: 'glyphicon glyphicon-pencil' %>
+              <%= link_to '', crediential_path(crediential), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'glyphicon glyphicon-trash' %>
             </td>
           </tr>
         <% end %>

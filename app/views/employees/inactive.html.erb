@@ -17,7 +17,7 @@
             <td><%= employee.name %></td>
             <td><%= employee.email %></td>
             <td>
-        			<%= link_to 'Restore', restore_employee_path(employee), remote: true, method: :delete, data: { confirm: "Are you sure want to restore?" }, class: 'color-red' %>
+        			<%= link_to '', restore_employee_path(employee), remote: true, method: :delete, data: { confirm: "Are you sure want to restore?" }, class: 'fa fa-history' %>
             </td>
           </tr>
         <% end %>

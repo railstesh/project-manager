@@ -24,9 +24,9 @@
             <td><%= employee.skills.join(', ') %></td>
             <td><%= employee.status %></td>
             <td>
-              <%= link_to 'View', employee_path(employee) %>
-        			<%= link_to 'Edit', edit_employee_path(employee) %>
-        			<%= link_to 'Delete', employee_path(employee), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'color-red' %>
+              <%= link_to '', employee_path(employee), class: 'glyphicon glyphicon-eye-open' %>
+        			<%= link_to '', edit_employee_path(employee), class: 'glyphicon glyphicon-pencil' %>
+        			<%= link_to '', employee_path(employee), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'glyphicon glyphicon-trash' %>
             </td>
           </tr>
         <% end %>

@@ -40,7 +40,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row toggle-page">
     <div class="col-md-12 col-sm-12 col-xs-12">
       <p>
         <a class="btn btn-primary" data-toggle="collapse" href="#toggle1" role="button" aria-expanded="false" aria-controls="toggle1">Assigned User</a>
@@ -74,7 +74,7 @@
                         <td><%= assign.billing_hours %></td>
                         <td><%= assign.calculate_time %></td>
                         <td>
-                          <%= link_to 'Delete', assign_path(id: assign, project_id: @project), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'color-red' %>
+                          <%= link_to '', assign_path(id: assign, project_id: @project), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'glyphicon glyphicon-trash' %>
                         </td>
                       </tr>
                     <% end %>

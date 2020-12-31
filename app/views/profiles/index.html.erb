@@ -18,9 +18,9 @@
           <tr>
             <td><%= profile.name %></td>
             <td>
-              <%= link_to 'View', profile_path(profile) %>
-        			<%= link_to 'Edit', edit_profile_path(profile) %>
-        			<%= link_to 'Delete', profile_path(profile), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'color-red' %>
+              <%= link_to '', profile_path(profile), class: 'glyphicon glyphicon-eye-open' %>
+        			<%= link_to '', edit_profile_path(profile), class: 'glyphicon glyphicon-pencil' %>
+        			<%= link_to '', profile_path(profile), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'glyphicon glyphicon-trash' %>
             </td>
           </tr>
         <% end %>

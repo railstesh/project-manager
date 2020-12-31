@@ -19,7 +19,7 @@
             <td><%= assign.employee&.name %></td>
             <td><%= assign.billing_hours %></td>
             <td>
-        			<%= link_to 'Restore', restore_assign_path(assign), remote: true, method: :delete, data: { confirm: "Are you sure want to restore?" }, class: 'color-red' %>
+        			<%= link_to '', restore_assign_path(assign), remote: true, method: :delete, data: { confirm: "Are you sure want to restore?" }, class: 'fa fa-history' %>
             </td>
           </tr>
         <% end %>

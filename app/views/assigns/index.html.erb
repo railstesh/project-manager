@@ -22,9 +22,9 @@
             <td><%= assign.employee&.name %></td>
             <td><%= assign.billing_hours %></td>
             <td>
-              <%= link_to 'View', assign_path(assign) %>
-        			<%= link_to 'Edit', edit_assign_path(assign) %>
-        			<%= link_to 'Delete', assign_path(assign), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'color-red' %>
+              <%= link_to '', assign_path(assign), class: 'glyphicon glyphicon-eye-open' %>
+        			<%= link_to '', edit_assign_path(assign), class: 'glyphicon glyphicon-pencil' %>
+        			<%= link_to '', assign_path(assign), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'glyphicon glyphicon-trash' %>
             </td>
           </tr>
         <% end %>

@@ -18,9 +18,9 @@
           <tr>
             <td><%= technology.name %></td>
             <td>
-              <%= link_to 'View', technology_path(technology) %>
-              <%= link_to 'Edit', edit_technology_path(technology) %>
-              <%= link_to 'Delete', technology_path(technology), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'color-red' %>
+              <%= link_to '', technology_path(technology), class: 'glyphicon glyphicon-eye-open' %>
+              <%= link_to '', edit_technology_path(technology), class: 'glyphicon glyphicon-pencil' %>
+              <%= link_to '', technology_path(technology), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'glyphicon glyphicon-trash' %>
             </td>
           </tr>
         <% end %>
