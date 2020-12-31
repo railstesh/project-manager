@@ -51,38 +51,34 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="collapse multi-collapse" id="toggle1">
             <div class="card card-body">
-              <% if @project.assigns.present? %>
-                <div class="right-top-section">
-                  <h4> List of Assigned User Details:</h4>
-                  <button id="myBtn" class= "btn btn-primary">+ Assign </button>
-                </div>
-                <table class="table table-striped">
-                  <thead>
+              <div class="right-top-section">
+                <h4> List of Assigned User Details:</h4>
+                <button id="add-profile" class= "btn btn-primary">+ Assign </button>
+              </div>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Employee Name</th>
+                    <th>Assigned As</th>
+                    <th>Assigned Hrs</th>
+                    <th>Working Time</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @project.assigns.each do |assign| %>
                     <tr>
-                      <th>Employee Name</th>
-                      <th>Assigned As</th>
-                      <th>Assigned Hrs</th>
-                      <th>Working Time</th>
-                      <th>Action</th>
+                      <td><%= assign.employee&.name %></td>
+                      <td><%= assign.assigned_as %></td>
+                      <td><%= assign.billing_hours %></td>
+                      <td><%= assign.calculate_time %></td>
+                      <td>
+                        <%= link_to '', assign_path(id: assign, project_id: @project), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'glyphicon glyphicon-trash' %>
+                      </td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    <% @project.assigns.each do |assign| %>
-                      <tr>
-                        <td><%= assign.employee&.name %></td>
-                        <td><%= assign.assigned_as %></td>
-                        <td><%= assign.billing_hours %></td>
-                        <td><%= assign.calculate_time %></td>
-                        <td>
-                          <%= link_to '', assign_path(id: assign, project_id: @project), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'glyphicon glyphicon-trash' %>
-                        </td>
-                      </tr>
-                    <% end %>
-                  </tbody>
-                </table>
-              <% else %>
-                <h3> No Record Found </h3>
-              <% end %>
+                  <% end %>
+                </tbody>
+              </table>
             </div>
             <hr>
           </div>
