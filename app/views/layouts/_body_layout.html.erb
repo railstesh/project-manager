@@ -4,41 +4,78 @@
       <% if user_signed_in? %>
         <div class="sidebar">
           <ul>    
-            <li><%= link_to "Dashboard", root_path %></li>
+            <li class="sidebar-menu">
+              <div class="sidebar-icons"><i class="fa fa-tachometer" aria-hidden="true"></i></div>
+              <%= link_to "Dashboard", root_path %>
+            </li>
 
-            <li><%= link_to "Technologies", technologies_path %></li>
+            <li class="sidebar-menu">
+              <div class="sidebar-icons"><i class="fa fa-language" aria-hidden="true"></i></div>
+              <%= link_to "Technologies", technologies_path %>
+            </li>
 
-            <li class="dropdown">
+            <li class="dropdown sidebar-menu">
+              <div class="sidebar-icons"><i class="fa fa-user" aria-hidden="true"></i></div>
               <a href="#" data-toggle="dropdown" class="dropdown-toggle" >Employees</a>
                 <ul class="dropdown-menu">
-                  <li><%= link_to "Active", employees_path %></li>
-                  <li><%= link_to "Inactive", inactive_employees_path %></li>
+                  <li class="sidebar-menu">
+                    <div class="sidebar-icons"><i class="fa fa-toggle-on" aria-hidden="true"></i></div>
+                    <%= link_to "Active", employees_path %>
+                  </li>
+                  <li class="sidebar-menu">
+                    <div class="sidebar-icons"><i class="fa fa-toggle-off" aria-hidden="true"></i></div>
+                    <%= link_to "Inactive", inactive_employees_path %>
+                  </li>
                 </ul>
             </li>
 
-            <li><%= link_to "Profiles", profiles_path %></li>
+            <li class="sidebar-menu">
+              <div class="sidebar-icons"><i class="fa fa-users" aria-hidden="true"></i></div>
+              <%= link_to "Profiles", profiles_path %>
+            </li>
 
-            <li class="dropdown">
+            <li class="dropdown sidebar-menu">
+              <div class="sidebar-icons"><i class="fa fa-briefcase" aria-hidden="true"></i></div>
               <a href="#" data-toggle="dropdown" class="dropdown-toggle" >Projects</a>
                 <ul class="dropdown-menu">
-                  <li><%= link_to "Active", projects_path %></li>
-                  <li><%= link_to "Inactive", inactive_projects_path %></li>
+                  <li class="sidebar-menu">
+                    <div class="sidebar-icons"><i class="fa fa-toggle-on" aria-hidden="true"></i></div>
+                    <%= link_to "Active", projects_path %>
+                  </li>
+                  <li class="sidebar-menu">
+                    <div class="sidebar-icons"><i class="fa fa-toggle-off" aria-hidden="true"></i></div>
+                    <%= link_to "Inactive", inactive_projects_path %>
+                  </li>
                 </ul>
             </li>
 
-            <li class="dropdown">
+            <li class="dropdown sidebar-menu">
+              <div class="sidebar-icons"><i class="fa fa-book" aria-hidden="true"></i></div>
               <a href="#" data-toggle="dropdown" class="dropdown-toggle" >Assigned</a>
                 <ul class="dropdown-menu">
-                  <li><%= link_to "Active", assigns_path %></li>
-                  <li><%= link_to "Inactive", inactive_assigns_path %></li>
+                  <li class="sidebar-menu">
+                    <div class="sidebar-icons"><i class="fa fa-toggle-on" aria-hidden="true"></i></div>
+                    <%= link_to "Active", assigns_path %>
+                  </li>
+                  <li class="sidebar-menu">
+                    <div class="sidebar-icons"><i class="fa fa-toggle-off" aria-hidden="true"></i></div>
+                    <%= link_to "Inactive", inactive_assigns_path %>
+                  </li>
                 </ul>
             </li>
 
-            <li class="dropdown">
+            <li class="dropdown sidebar-menu">
+              <div class="sidebar-icons"><i class="fa fa-credit-card-alt" aria-hidden="true"></i></div>
               <a href="#" data-toggle="dropdown" class="dropdown-toggle" >Credientials</a>
                 <ul class="dropdown-menu">
-                  <li><%= link_to "Crediential Type", crediential_types_path %></li>
-                  <li><%= link_to "Add Crediential", credientials_path %></li>
+                  <li class="sidebar-menu">
+                    <div class="sidebar-icons"><i class="fa fa-id-card-o" aria-hidden="true"></i></div>
+                    <%= link_to "Crediential Type", crediential_types_path %>
+                  </li>
+                  <li class="sidebar-menu">
+                    <div class="sidebar-icons"><i class="fa fa-id-card" aria-hidden="true"></i></div>
+                    <%= link_to "Add Crediential", credientials_path %>
+                  </li>
                 </ul>
             </li>
 
