@@ -19,26 +19,24 @@
 //= require_tree .
 
 $(function() {
-    var flashCallback;
-    flashCallback = function() {
-        return $(".alert").fadeOut();
+  var flashCallback;
+  flashCallback = function() {
+    return $(".alert").fadeOut();
+  };
+  $(".alert").bind('click', (function(_this) {
+    return function(ev) {
+      return $(".alert").fadeOut();
     };
-    $(".alert").bind('click', (function(_this) {
-        return function(ev) {
-            return $(".alert").fadeOut();
-        };
-    })(this));
-    return setTimeout(flashCallback, 2000);
+  })(this));
+  return setTimeout(flashCallback, 2000);
 });
 
-$(document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function(){
   $(".select2").select2({
     allowClear: true,
     theme: "bootstrap"
   });
-});
 
-$(document).on('ready', function(){
   var reloadWithTurbolinks = (function () {
     var scrollPosition
 
@@ -65,34 +63,27 @@ $(document).on('ready', function(){
     });
   })
 
-  var modal = document.getElementById("myModal");
-  var btn = document.getElementById("myBtn");
-  var span = document.getElementsByClassName("close")[0];
-  btn.onclick = function() {
-    modal.style.display = "block";
-  }
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
+  $("#add-cred").on('click', function(){
+    $("#myModal").css('display','block');
+  });
 
-  var modal1 = document.getElementById("myModal1");
-  var btn1 = document.getElementById("myBtn1");
-  var span1 = document.getElementsByClassName("close1")[0];
-  btn1.onclick = function() {
-    modal1.style.display = "block";
-  }
-  span1.onclick = function() {
-    modal1.style.display = "none";
-    location.reload();
-  }
-  window.onclick = function(event) {
-    if (event.target == modal1) {
-      modal1.style.display = "none";
-    }
-  }
+  $(".close").on('click', function(){
+    $("#myModal").css('display','none');
+  });
+
+  $("#add-technology").on('click', function(){
+    $("#myModal1").css('display','block');
+  });
+
+  $(".close1").on('click', function(){
+    $("#myModal1").css('display','none');
+  });
+
+  $("#add-profile").on('click', function(){
+    $("#myModal").css('display','block');
+  });
+
+  $(".close").on('click', function(){
+    $("#myModal").css('display','none');
+  });
 });
