@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
       @project.descriptions.create(title: "#{@project.title} is created on #{@project.created_at}")
       redirect_to projects_path
     else
-      render :new
+      redirect_to new_project_path
     end
   end
 
