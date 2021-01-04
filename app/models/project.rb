@@ -11,4 +11,5 @@ class Project < ApplicationRecord
   accepts_nested_attributes_for :assigns, reject_if: :all_blank, allow_destroy: true
 
   validates_presence_of :title, :client_name, :profile_id, :work_limit, :technologies, message: "This field shouldn't be blank", on: :create
+  validates_uniqueness_of :title, uniqueness: {case_sensitive: false}
 end
