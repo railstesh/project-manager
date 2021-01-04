@@ -6,30 +6,34 @@
     </div>
   </div>
   <div>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Crediential Type</th>
-          <th>Project</th>
-          <th>Profile</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @credientials.each do |crediential| %>
+    <% if @credientials.present? %>
+      <table class="table table-striped">
+        <thead>
           <tr>
-            <td><%= crediential.crediential_type.name %></td>
-            <td><%= crediential.project.title %></td>
-            <td><%= crediential.project.profile.name %></td>
-            <td>
-              <%= link_to '', crediential_path(crediential), class: 'glyphicon glyphicon-eye-open' %>
-              <%= link_to '', edit_crediential_path(crediential), class: 'glyphicon glyphicon-pencil' %>
-              <%= link_to '', crediential_path(crediential), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'glyphicon glyphicon-trash' %>
-            </td>
+            <th>Crediential Type</th>
+            <th>Project</th>
+            <th>Profile</th>
+            <th>Action</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <%= will_paginate @crediential_types %>
+        </thead>
+        <tbody>
+          <% @credientials.each do |crediential| %>
+            <tr>
+              <td><%= crediential.crediential_type.name %></td>
+              <td><%= crediential.project.title %></td>
+              <td><%= crediential.project.profile.name %></td>
+              <td>
+                <%= link_to '', crediential_path(crediential), class: 'glyphicon glyphicon-eye-open' %>
+                <%= link_to '', edit_crediential_path(crediential), class: 'glyphicon glyphicon-pencil' %>
+                <%= link_to '', crediential_path(crediential), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'glyphicon glyphicon-trash' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= will_paginate @crediential_types %>
+    <% else %>
+      <h4>Record Not Found</h4>
+    <% end %>
   </div>
 </div>

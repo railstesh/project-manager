@@ -6,32 +6,36 @@
     </div>
   </div>
   <div>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Skills</th>
-          <th>Status</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @employees.each do |employee| %>
+    <% if @employees.present? %>
+      <table class="table table-striped">
+        <thead>
           <tr>
-            <td><%= employee.name %></td>
-            <td><%= employee.email %></td>
-            <td><%= employee.skills.join(', ') %></td>
-            <td><%= employee.status %></td>
-            <td>
-              <%= link_to '', employee_path(employee), class: 'glyphicon glyphicon-eye-open' %>
-        			<%= link_to '', edit_employee_path(employee), class: 'glyphicon glyphicon-pencil' %>
-        			<%= link_to '', employee_path(employee), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'glyphicon glyphicon-trash' %>
-            </td>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Skills</th>
+            <th>Status</th>
+            <th>Action</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <%= will_paginate @employees %>
+        </thead>
+        <tbody>
+          <% @employees.each do |employee| %>
+            <tr>
+              <td><%= employee.name %></td>
+              <td><%= employee.email %></td>
+              <td><%= employee.skills.join(', ') %></td>
+              <td><%= employee.status %></td>
+              <td>
+                <%= link_to '', employee_path(employee), class: 'glyphicon glyphicon-eye-open' %>
+          			<%= link_to '', edit_employee_path(employee), class: 'glyphicon glyphicon-pencil' %>
+          			<%= link_to '', employee_path(employee), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'glyphicon glyphicon-trash' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= will_paginate @employees %>
+    <% else %>
+      <h4>Record Not Found</h4>
+    <% end %>
   </div>
 </div>

@@ -1,10 +1,14 @@
 <div class="right-section">
   <h3> Create Technology </h3>
-  <%= simple_form_for @technology do |f| %>
-    <%= render partial: 'form', locals: {form: f}%>
-    <div class="text-right">
-      <%= f.submit "Save", class: 'btn btn-success' %>
-      <%= link_to 'Back', technologies_path, method: :get, class: "btn btn-success"%>
+  <div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <%= simple_form_for @technology do |f| %>
+        <%= render partial: 'form', locals: {form: f}%>
+        <div class="text-right">
+          <%= f.submit "Save", class: 'btn btn-success' %>
+          <%= link_to 'Back', technologies_path, method: :get, class: "btn btn-success"%>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>

@@ -6,26 +6,30 @@
     </div>
   </div>
   <div>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @technologies.each do |technology| %>
+    <% if @technologies.present? %>
+      <table class="table table-striped">
+        <thead>
           <tr>
-            <td><%= technology.name %></td>
-            <td>
-              <%= link_to '', technology_path(technology), class: 'glyphicon glyphicon-eye-open' %>
-              <%= link_to '', edit_technology_path(technology), class: 'glyphicon glyphicon-pencil' %>
-              <%= link_to '', technology_path(technology), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'glyphicon glyphicon-trash' %>
-            </td>
+            <th>Name</th>
+            <th>Action</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <%= will_paginate @technologies %>
+        </thead>
+        <tbody>
+          <% @technologies.each do |technology| %>
+            <tr>
+              <td><%= technology.name %></td>
+              <td>
+                <%= link_to '', technology_path(technology), class: 'glyphicon glyphicon-eye-open' %>
+                <%= link_to '', edit_technology_path(technology), class: 'glyphicon glyphicon-pencil' %>
+                <%= link_to '', technology_path(technology), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'glyphicon glyphicon-trash' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= will_paginate @technologies %>
+    <% else %>
+      <h4>Record Not Found</h4>
+    <% end %>
   </div>
 </div>

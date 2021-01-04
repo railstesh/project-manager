@@ -2,23 +2,27 @@
   <div class="right-top-section">
     <h3> List of Project Details </h3>
   </div>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Project</th>
-        <th>Profile</th>
-        <th>Technology</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @projects.each do |project| %>
+  <% if @projects.present? %>
+    <table class="table table-striped">
+      <thead>
         <tr>
-          <td><%= project.title %></td>
-          <td><%= project.profile.name %></td>
-          <td><%= project.technologies.join(', ') %></td>
+          <th>Project</th>
+          <th>Profile</th>
+          <th>Technology</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= will_paginate @projects %>
+      </thead>
+      <tbody>
+        <% @projects.each do |project| %>
+          <tr>
+            <td><%= project.title %></td>
+            <td><%= project.profile.name %></td>
+            <td><%= project.technologies.join(', ') %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate @projects %>
+  <% else %>
+    <h4>Record Not Found</h4>
+  <% end %>
 </div>

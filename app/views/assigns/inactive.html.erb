@@ -3,28 +3,32 @@
     <h3 class="mt-4 d-flex justify-content-center"> List of Inactive Assign Projects </h3>
   </div>
   <div class="ml-3 mr-3">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Project</th>
-          <th>Assigned</th>
-          <th>Billing Hrs</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @assigns.each do |assign| %>
+    <% if @assigns.present? %>
+      <table class="table table-striped">
+        <thead>
           <tr>
-            <td><%= assign.project&.title %></td>
-            <td><%= assign.employee&.name %></td>
-            <td><%= assign.billing_hours %></td>
-            <td>
-        			<%= link_to '', restore_assign_path(assign), remote: true, method: :delete, data: { confirm: "Are you sure want to restore?" }, class: 'fa fa-history' %>
-            </td>
+            <th>Project</th>
+            <th>Assigned</th>
+            <th>Billing Hrs</th>
+            <th>Action</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <%= will_paginate @assigns %>
+        </thead>
+        <tbody>
+          <% @assigns.each do |assign| %>
+            <tr>
+              <td><%= assign.project&.title %></td>
+              <td><%= assign.employee&.name %></td>
+              <td><%= assign.billing_hours %></td>
+              <td>
+          			<%= link_to '', restore_assign_path(assign), remote: true, method: :delete, data: { confirm: "Are you sure want to restore?" }, class: 'fa fa-history' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= will_paginate @assigns %>
+    <% else %>
+      <h4> Record Not Found </h4>
+    <% end %>
   </div>
 </div>

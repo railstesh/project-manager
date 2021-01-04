@@ -3,26 +3,30 @@
     <h3> List of Inactive Employees </h3>
   </div>
   <div>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @employees.each do |employee| %>
+    <% if @employees.present? %>
+      <table class="table table-striped">
+        <thead>
           <tr>
-            <td><%= employee.name %></td>
-            <td><%= employee.email %></td>
-            <td>
-        			<%= link_to '', restore_employee_path(employee), remote: true, method: :delete, data: { confirm: "Are you sure want to restore?" }, class: 'fa fa-history' %>
-            </td>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <%= will_paginate @employees %>
+        </thead>
+        <tbody>
+          <% @employees.each do |employee| %>
+            <tr>
+              <td><%= employee.name %></td>
+              <td><%= employee.email %></td>
+              <td>
+          			<%= link_to '', restore_employee_path(employee), remote: true, method: :delete, data: { confirm: "Are you sure want to restore?" }, class: 'fa fa-history' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= will_paginate @employees %>
+    <% else %>
+      <h4> Record Not Found </h4>
+    <% end %>
   </div>
 </div>
