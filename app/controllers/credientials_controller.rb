@@ -14,7 +14,10 @@ class CredientialsController < ApplicationController
     @crediential = Crediential.new(crediential_params) 
 
     if @crediential.save
-      redirect_to credientials_path
+      respond_to do |format|
+        format.js
+        format.html { redirect_to credientials_path }
+      end
     else
       render :new
     end
@@ -32,7 +35,10 @@ class CredientialsController < ApplicationController
 
   def destroy
     @crediential.destroy
-    redirect_to credientials_path
+    respond_to do |format|
+      format.js { redirect_to project_path(params[:project_id]) }
+      format.html { redirect_to credientials_path }
+    end
   end
 
   def show; end
