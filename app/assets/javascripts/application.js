@@ -86,4 +86,12 @@ $(document).on('turbolinks:load', function(){
   $(".close").on('click', function(){
     $("#myModal").css('display','none');
   });
+
+  $("#credential").on('click', function(){
+    $("#myModal1").css('display','block');
+  });
+
+  $(".close1").on('click', function(){
+    $("#myModal1").css('display','none');
+  });
 });

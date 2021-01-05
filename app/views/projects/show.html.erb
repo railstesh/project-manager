@@ -27,9 +27,9 @@
     </div>
   </div>
 
-  <div id="myModal" class="modal">
+  <div id="myModal1" class="modal">
     <div class="modal-content">
-      <span class="close">&times;</span>
+      <span class="close1">&times;</span>
       <h4> Add Credential: </h4>
       <%= simple_form_for @crediential, remote: true do |f| %>
         <%= render partial: 'crediential_form', locals: {form: f, project: @project.id}%>
@@ -115,7 +115,7 @@
             <div class="card card-body">
               <div class="right-top-section">
                 <h4> Project Credentials:</h4>
-                <button id="add-cred" class= "btn btn-primary">+ Credential </button>
+                <button id="credential" class= "btn btn-primary">+ Credential </button>
               </div>
               <% if @project.credientials.present? %>
                 <table class="table table-striped">
