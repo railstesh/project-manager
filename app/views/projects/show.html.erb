@@ -30,6 +30,19 @@
   <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
+      <h4> Add Credential: </h4>
+      <%= simple_form_for @crediential, remote: true do |f| %>
+        <%= render partial: 'crediential_form', locals: {form: f, project: @project.id}%>
+        <div class="text-right">
+          <%= f.submit "Save", class: 'btn btn-success save-btn' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
       <h4> Assign User: </h4>
       <%= simple_form_for @assign, remote: true do |f| %>
         <%= render partial: 'assign_form', locals: {form: f, project: @project.id}%>
@@ -100,8 +113,11 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="collapse multi-collapse" id="toggle4">
             <div class="card card-body">
-              <% if @project.credientials.present? %>
+              <div class="right-top-section">
                 <h4> Project Credentials:</h4>
+                <button id="add-cred" class= "btn btn-primary">+ Credential </button>
+              </div>
+              <% if @project.credientials.present? %>
                 <table class="table table-striped">
                   <thead>
                     <tr>
@@ -110,6 +126,7 @@
                       <th>Username</th>
                       <th>Email</th>
                       <th>Password</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -120,6 +137,9 @@
                         <td><%= c.username %></td>
                         <td><%= c.email %></td>
                         <td><%= c.password %></td>
+                        <td>
+                          <%= link_to '', crediential_path(id: c, project_id: @project), remote: true, method: :delete, data: { confirm: "Are you sure want to delete?" }, class: 'glyphicon glyphicon-trash' %>
+                        </td>
                       </tr>
                     <% end %>
                   </tbody>

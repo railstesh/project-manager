@@ -1,0 +1,18 @@
+<div class="row">
+  <%= form.hidden_field :project_id, value: project %>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <%= form.input :crediential_type_id, collection: CredientialType.all, label: 'Crediential Type', prompt: 'Select Crediential Type', input_html: { class: 'select2' } %>
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <%= form.input :url %>
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <%= form.input :username %>
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <%= form.input :email %>
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <%= form.input :password, as: :string %>
+  </div>
+</div>
