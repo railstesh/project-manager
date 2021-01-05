@@ -57,7 +57,7 @@ class ProjectsController < ApplicationController
   protected
 
   def project_params
-    params.require(:project).permit(:title, :client_name, :profile_id, :work_limit, :invoice_type, technologies: [], assigns_attributes: [:id, :user_id, :project_id, :billing_hours, :assigned_as, :employee_id, :_destroy])
+    params.require(:project).permit(:tracker, :title, :client_name, :profile_id, :work_limit, :invoice_type, technologies: [], assigns_attributes: [:id, :user_id, :project_id, :billing_hours, :assigned_as, :employee_id, :_destroy])
   end
 
   def load_project

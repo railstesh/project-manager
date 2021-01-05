@@ -13,8 +13,11 @@
       <div class="col-md-4 col-sm-4 col-xs-12">
         <%= form.input :invoice_type, collection: Project.invoice_types.keys, prompt: 'Select Invoice Type', input_html: { class: 'select2' } %>
       </div>
-      <div class="col-md-4 col-sm-4 col-xs-12">
+      <div class="col-md-2 col-sm-2 col-xs-12">
         <%= form.input :work_limit %>
+      </div>
+      <div class="col-md-2 col-sm-2 col-xs-12">
+        <%= form.input :tracker %>
       </div>
       <div class="col-md-12 col-sm-12 col-xs-12">
         <%= form.input :technologies, collection: Technology.pluck(:name), include_hidden: false , label: 'Technology', prompt: 'Select Technology', input_html: { class: 'select2', multiple: 'multiple' } %>

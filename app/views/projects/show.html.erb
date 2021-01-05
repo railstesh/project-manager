@@ -23,6 +23,9 @@
         <div class="col-md-6 col-sm-6 col-xs-12 show-bar">
           <li> Work Limit: <%= @project.work_limit %> </li>
         </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 show-bar">
+          <li> Tracker: <%= @project.tracker.to_s.capitalize %> </li>
+        </div>
       </ul>
     </div>
   </div>
