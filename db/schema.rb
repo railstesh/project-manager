@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_28_115431) do
+ActiveRecord::Schema.define(version: 2021_01_05_131000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2020_12_28_115431) do
     t.bigint "profile_id"
     t.bigint "technology_id"
     t.text "technologies", default: [], array: true
+    t.boolean "tracker"
     t.index ["deleted_at"], name: "index_projects_on_deleted_at"
     t.index ["profile_id"], name: "index_projects_on_profile_id"
     t.index ["technology_id"], name: "index_projects_on_technology_id"
