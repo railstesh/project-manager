@@ -1,7 +1,13 @@
 <div class = "mt-4 pl-4"> 
   <%= simple_form_for @employee do |form| %>
-    <%= form.input :name %>
-    <%= form.input :email %>
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <%= form.input :name %>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <%= form.input :email %>
+      </div>
+    </div>  
     <%= form.input :stack %>
     <%= form.input :skills, collection: Technology.pluck(:name), include_hidden: false , prompt: 'Select Skills', input_html: { class: 'select2', multiple: 'multiple' } %>
     <div class="text-right">
