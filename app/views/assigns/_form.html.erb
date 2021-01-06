@@ -5,8 +5,11 @@
         <%= form.input :project_id, collection: Project.all, label: 'Project', prompt: 'Select Project', input_html: { class: 'select2' } %>
       </div>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <%= form.input :employee_id, collection: Employee.all, label: 'Employee', prompt: 'Select Employee', input_html: { class: 'select2' } %>
+        <%= form.label :Employee %>
+        <%= form.select :employee_id, options_from_collection_for_select(Employee.all, :id, :name_with_status), {}, {class: 'select2'} %>
       </div>
+    </div>
+    <div class="row">
       <div class="col-md-6 col-sm-6 col-xs-12">
         <%= form.input :assigned_as, collection: Assign.assigned_as.keys, prompt: 'Select Assigned_as', input_html: { class: 'select2' } %>
       </div>
