@@ -10,6 +10,10 @@ class Employee < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: { with: Devise::email_regexp } 
 
   def name_with_status
-    "#{name} (#{status})"
+    if status == 'Engage'  
+      "#{name} (#{status} #{self.assigns.sum(:billing_hours)} hrs)"
+    else
+      "#{name} (#{status})"
+    end
   end
 end

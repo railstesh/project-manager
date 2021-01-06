@@ -1,5 +1,5 @@
 <%= form.hidden_field :project_id, value: project %>
 <%= form.label :Employee %>
-<%= form.select :employee_id, options_from_collection_for_select(Employee.all, :id, :name_with_status), {}, {class: 'select2'} %>
+<%= form.select :employee_id, options_from_collection_for_select(Employee.includes(:assigns), :id, :name_with_status), {}, {class: 'select2'} %>
 <%= form.input :assigned_as, collection: Assign.assigned_as.keys, prompt: 'Select Assigned_as', input_html: { class: 'select2' } %>
 <%= form.input :billing_hours, label: 'Assigned Hours' %>
