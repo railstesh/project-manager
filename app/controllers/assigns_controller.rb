@@ -36,7 +36,10 @@ class AssignsController < ApplicationController
 
   def destroy
     @assign.project.descriptions.create(title: "#{@assign.employee.name} is removed from #{@assign.project.title}")
-    @assign.update_status(@assign.employee_id, 'Available')
+    count = Assign.where(employee_id: @assign.employee_id).count
+    if count == 1
+      @assign.update_status(@assign.employee_id, 'Available')
+    end
     @assign.destroy
     respond_to do |format|
       format.js { redirect_to project_path(params[:project_id]) }
