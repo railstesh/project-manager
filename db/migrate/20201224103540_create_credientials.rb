@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class
 class CreateCredientials < ActiveRecord::Migration[5.2]
   def change
     create_table :credientials do |t|

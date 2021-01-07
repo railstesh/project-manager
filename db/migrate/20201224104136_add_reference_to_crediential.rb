@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class
 class AddReferenceToCrediential < ActiveRecord::Migration[5.2]
   def change
     add_reference :credientials, :project, index: true

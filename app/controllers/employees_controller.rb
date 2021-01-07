@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class
 class EmployeesController < ApplicationController
   before_action :load_employee, only: %i[edit update destroy show]
 
@@ -10,7 +13,7 @@ class EmployeesController < ApplicationController
   end
 
   def create
-    @employee = Employee.new(employee_params) 
+    @employee = Employee.new(employee_params)
 
     if @employee.save
       redirect_to employees_path

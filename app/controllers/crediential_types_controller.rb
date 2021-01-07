@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class
 class CredientialTypesController < ApplicationController
   before_action :load_type, only: %i[edit update destroy show]
 
@@ -10,7 +13,7 @@ class CredientialTypesController < ApplicationController
   end
 
   def create
-    @crediential_type = CredientialType.new(crediential_type_params) 
+    @crediential_type = CredientialType.new(crediential_type_params)
 
     if @crediential_type.save
       respond_to do |format|

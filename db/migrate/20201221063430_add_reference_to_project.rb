@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class
 class AddReferenceToProject < ActiveRecord::Migration[5.2]
   def change
     add_reference :projects, :profile, index: true

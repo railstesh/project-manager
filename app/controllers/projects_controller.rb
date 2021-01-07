@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class
 class ProjectsController < ApplicationController
   before_action :load_project, only: %i[edit update destroy show]
 
@@ -12,7 +15,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params) 
+    @project = Project.new(project_params)
 
     if @project.save
       @project.descriptions.create(title: "#{@project.title} is created on #{@project.created_at}")
@@ -64,4 +67,3 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
 end
-

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class
 class AddFieldsInAssign < ActiveRecord::Migration[5.2]
   def change
     add_column :assigns, :assigned_as, :integer, default: 0

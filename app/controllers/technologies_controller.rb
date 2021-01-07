@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class
 class TechnologiesController < ApplicationController
   before_action :load_technology, only: %i[edit update destroy show]
 
@@ -10,7 +13,7 @@ class TechnologiesController < ApplicationController
   end
 
   def create
-    @technology = Technology.new(technology_params) 
+    @technology = Technology.new(technology_params)
 
     if @technology.save
       respond_to do |format|

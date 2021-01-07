@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class
 class ProfilesController < ApplicationController
   before_action :load_profile, only: %i[edit update destroy show]
 
@@ -10,7 +13,7 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.new(profile_params) 
+    @profile = Profile.new(profile_params)
 
     if @profile.save
       respond_to do |format|

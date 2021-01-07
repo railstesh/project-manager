@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class
 class CredientialsController < ApplicationController
   before_action :load_crediential, only: %i[edit update destroy show]
 
@@ -11,7 +14,7 @@ class CredientialsController < ApplicationController
   end
 
   def create
-    @crediential = Crediential.new(crediential_params) 
+    @crediential = Crediential.new(crediential_params)
 
     if @crediential.save
       respond_to do |format|
