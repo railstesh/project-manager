@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -43,11 +45,12 @@ gem 'font-awesome-rails'
 # configuration values often include sensitive information
 gem 'figaro'
 gem 'simple_form'
-gem "paranoia"
-gem "cocoon"
-gem "select2-rails"
+gem 'paranoia'
+gem 'cocoon'
+gem 'select2-rails'
 gem 'will_paginate'
-gem 'will_paginate-bootstrap' 
+gem 'will_paginate-bootstrap'
+gem 'rubocop' 
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
