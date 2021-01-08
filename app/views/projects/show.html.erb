@@ -103,11 +103,11 @@
           <div class="collapse multi-collapse" id="toggle3">
             <div class="card card-body">
               <h4> Project Descriptions:</h4>
-              <ol>
+              <ul>
                 <% @descriptions.each do |des| %>
                   <li> <%= des.title %> </li>
                 <% end %>
-              </ol>
+              </ul>
               <%= will_paginate @descriptions %>
               <hr>
             </div>
