@@ -2,6 +2,8 @@
 
 # class
 class Project < ApplicationRecord
+  extend Pagination
+
   acts_as_paranoid
 
   has_many :assigns

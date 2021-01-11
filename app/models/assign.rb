@@ -2,6 +2,8 @@
 
 # class
 class Assign < ApplicationRecord
+  extend Pagination
+
   acts_as_paranoid
 
   belongs_to :project

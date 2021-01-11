@@ -2,6 +2,8 @@
 
 # class
 class Profile < ApplicationRecord
+  extend Pagination
+
   has_many :projects
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }

@@ -5,7 +5,7 @@ class CredientialTypesController < ApplicationController
   before_action :load_type, only: %i[edit update destroy show]
 
   def index
-    @crediential_types = CredientialType.all.paginate(page: params[:page], per_page: 9)
+    @crediential_types = CredientialType.all.processed_pagination(params[:page])
   end
 
   def new

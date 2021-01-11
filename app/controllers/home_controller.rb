@@ -3,6 +3,6 @@
 # class
 class HomeController < ApplicationController
   def index
-    @projects = Project.without_deleted.paginate(page: params[:page], per_page: 9)
+    @projects = Project.without_deleted.processed_pagination(params[:page])
   end
 end

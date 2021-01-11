@@ -5,7 +5,7 @@ class EmployeesController < ApplicationController
   before_action :load_employee, only: %i[edit update destroy show]
 
   def index
-    @employees = Employee.without_deleted.paginate(page: params[:page], per_page: 9)
+    @employees = Employee.without_deleted.processed_pagination(params[:page])
   end
 
   def new
