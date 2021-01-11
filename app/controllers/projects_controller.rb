@@ -18,7 +18,6 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
 
     if @project.save
-      @project.descriptions.create(title: "#{@project.title} is created on #{@project.created_at}")
       redirect_to projects_path
     else
       redirect_to new_project_path

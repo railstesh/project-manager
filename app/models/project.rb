@@ -5,6 +5,8 @@ class Project < ApplicationRecord
   extend Pagination
   include Duration
 
+  after_create :project_create
+
   acts_as_paranoid
 
   has_many :assigns
@@ -16,4 +18,8 @@ class Project < ApplicationRecord
 
   validates_presence_of :title, :client_name, :profile_id, :work_limit, :technologies, on: :create
   validates_uniqueness_of :title, uniqueness: { case_sensitive: false }
+
+  def project_create
+    self.descriptions.create(title: "#{self.title} is created on #{self.created_at}")
+  end
 end

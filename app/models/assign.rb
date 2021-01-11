@@ -5,6 +5,9 @@ class Assign < ApplicationRecord
   extend Pagination
   include Duration
 
+  after_create :assign_user
+  after_destroy :release_user
+
   acts_as_paranoid
 
   belongs_to :project
@@ -17,5 +20,16 @@ class Assign < ApplicationRecord
 
   def update_status(employee, status)
     employee.update(status: status)
+  end
+
+  def assign_user
+    self.update_status(self.employee, 'Engage')
+    self.project.descriptions.create(title: "#{self.project.title} is assign to #{self.employee.name} as #{self.assigned_as}")
+  end
+
+  def release_user
+    self.project.descriptions.create(title: "#{self.employee.name} is removed from #{self.project.title}")
+    count = Assign.where(employee_id: self.employee_id).count
+    self.update_status(self.employee, 'Available') if count == 0
   end
 end
