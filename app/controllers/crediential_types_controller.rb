@@ -36,8 +36,7 @@ class CredientialTypesController < ApplicationController
   end
 
   def destroy
-    @crediential_type.destroy
-    redirect_to crediential_types_path
+    redirect_to crediential_types_path if @crediential_type.destroy
   end
 
   def show; end

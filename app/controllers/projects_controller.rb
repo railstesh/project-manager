@@ -36,8 +36,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project.destroy
-    redirect_to projects_path
+    redirect_to projects_path if @project.destroy
   end
 
   def show

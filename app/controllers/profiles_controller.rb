@@ -36,8 +36,7 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
-    @profile.destroy
-    redirect_to profiles_path
+    redirect_to profiles_path if @profile.destroy
   end
 
   def show; end

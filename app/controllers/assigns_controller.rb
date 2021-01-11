@@ -38,13 +38,14 @@ class AssignsController < ApplicationController
   end
 
   def destroy
-    @assign.project.descriptions.create(title: "#{@assign.employee.name} is removed from #{@assign.project.title}")
-    count = Assign.where(employee_id: @assign.employee_id).count
-    @assign.update_status(@assign.employee, 'Available') if count == 1
-    @assign.destroy
-    respond_to do |format|
-      format.js { redirect_to project_path(params[:project_id]) }
-      format.html { redirect_to assigns_path }
+    if @assign.destroy
+      @assign.project.descriptions.create(title: "#{@assign.employee.name} is removed from #{@assign.project.title}")
+      count = Assign.where(employee_id: @assign.employee_id).count
+      @assign.update_status(@assign.employee, 'Available') if count == 1
+      respond_to do |format|
+        format.js { redirect_to project_path(params[:project_id]) }
+        format.html { redirect_to assigns_path }
+      end
     end
   end
 

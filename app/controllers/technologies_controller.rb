@@ -36,8 +36,7 @@ class TechnologiesController < ApplicationController
   end
 
   def destroy
-    @technology.destroy
-    redirect_to technologies_path
+    redirect_to technologies_path if @technology.destroy
   end
 
   def show; end
