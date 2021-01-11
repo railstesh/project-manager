@@ -15,7 +15,7 @@ class Assign < ApplicationRecord
 
   validates_presence_of :project_id, :employee_id, :billing_hours, message: "This field shouldn't be blank"
 
-  def update_status(employee_id, status)
-    Employee.find(employee_id).update(status: status)
+  def update_status(employee, status)
+    employee.update(status: status)
   end
 end

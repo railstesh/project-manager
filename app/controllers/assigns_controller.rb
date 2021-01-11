@@ -17,7 +17,7 @@ class AssignsController < ApplicationController
     if @assign.save
       @assign.project.descriptions.create(title: "#{@assign.project.title} is assign to #{@assign.employee.name} as #{@assign.assigned_as}")
 
-      @assign.update_status(@assign.employee_id, 'Engage')
+      @assign.update_status(@assign.employee, 'Engage')
       respond_to do |format|
         format.js
         format.html { redirect_to assigns_path }
@@ -40,7 +40,7 @@ class AssignsController < ApplicationController
   def destroy
     @assign.project.descriptions.create(title: "#{@assign.employee.name} is removed from #{@assign.project.title}")
     count = Assign.where(employee_id: @assign.employee_id).count
-    @assign.update_status(@assign.employee_id, 'Available') if count == 1
+    @assign.update_status(@assign.employee, 'Available') if count == 1
     @assign.destroy
     respond_to do |format|
       format.js { redirect_to project_path(params[:project_id]) }
