@@ -20,6 +20,6 @@ class Project < ApplicationRecord
   validates_uniqueness_of :title, uniqueness: { case_sensitive: false }
 
   def project_create
-    self.descriptions.create(title: "#{self.title} is created on #{self.created_at}")
+    self.descriptions.create(title: "#{self.title} is created on #{self.created_at.strftime("%Y-%m-%d, %I:%M:%S %p")}")
   end
 end
