@@ -49,8 +49,7 @@ class ProjectsController < ApplicationController
   end
 
   def restore
-    @projects = Project.only_deleted
-    @project = @projects.find(params[:id])
+    @projects = Project.only_deleted.find(params[:id])
     @project.restore
     redirect_to inactive_projects_path
   end

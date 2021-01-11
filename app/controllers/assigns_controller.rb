@@ -50,8 +50,7 @@ class AssignsController < ApplicationController
   end
 
   def restore
-    @assigns = Assign.only_deleted
-    @assign = @assigns.find(params[:id])
+    @assign = Assign.only_deleted.find(params[:id])
     @assign.restore
     redirect_to inactive_assigns_path
   end

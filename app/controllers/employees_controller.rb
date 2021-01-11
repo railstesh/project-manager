@@ -43,8 +43,7 @@ class EmployeesController < ApplicationController
   end
 
   def restore
-    @employees = Employee.only_deleted
-    @employee = @employees.find(params[:id])
+    @employees = Employee.only_deleted.find(params[:id])
     @employee.restore
     redirect_to inactive_employees_path
   end
