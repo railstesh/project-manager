@@ -40,7 +40,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @descriptions = @project.descriptions.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    @descriptions = @project.descriptions.order(created_at: :desc).processed_pagination(params[:page])
     @assign = Assign.new
     @crediential = Crediential.new
   end
