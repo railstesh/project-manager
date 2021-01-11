@@ -3,6 +3,7 @@
 # class
 class Project < ApplicationRecord
   extend Pagination
+  include Duration
 
   acts_as_paranoid
 
@@ -17,16 +18,4 @@ class Project < ApplicationRecord
 
   validates_presence_of :title, :client_name, :profile_id, :work_limit, :technologies, on: :create
   validates_uniqueness_of :title, uniqueness: { case_sensitive: false }
-
-  def calculate_time
-    date1 = self.created_at.to_date
-    date2 = DateTime.now.to_date
-    date = date_diff(date1, date2)
-    "#{date.first} years, #{date.second} months"
-  end
-
-  def date_diff(date1, date2)
-    month = (date2.year * 12 + date2.month) - (date1.year * 12 + date1.month)
-    month.divmod(12)
-  end
 end
