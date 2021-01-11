@@ -42,7 +42,7 @@ class ProfilesController < ApplicationController
 
   def show; end
 
-  protected
+  private
 
   def profile_params
     params.require(:profile).permit(:name)

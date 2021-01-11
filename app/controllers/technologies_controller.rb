@@ -42,7 +42,7 @@ class TechnologiesController < ApplicationController
 
   def show; end
 
-  protected
+  private
 
   def technology_params
     params.require(:technology).permit(:name)

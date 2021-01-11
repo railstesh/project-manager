@@ -50,7 +50,7 @@ class EmployeesController < ApplicationController
     redirect_to inactive_employees_path
   end
 
-  protected
+  private
 
   def employee_params
     params.require(:employee).permit(:name, :email, :stack, skills: [])

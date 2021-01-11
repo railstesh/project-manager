@@ -42,7 +42,7 @@ class CredientialTypesController < ApplicationController
 
   def show; end
 
-  protected
+  private
 
   def crediential_type_params
     params.require(:crediential_type).permit(:name)

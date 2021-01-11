@@ -46,7 +46,7 @@ class CredientialsController < ApplicationController
 
   def show; end
 
-  protected
+  private
 
   def crediential_params
     params.require(:crediential).permit(:url, :username, :email, :password, :project_id, :crediential_type_id)

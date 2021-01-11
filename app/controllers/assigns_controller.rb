@@ -61,7 +61,7 @@ class AssignsController < ApplicationController
     redirect_to inactive_assigns_path
   end
 
-  protected
+  private
 
   def assign_params
     params.require(:assign).permit(:user_id, :project_id, :billing_hours, :assigned_as, :employee_id)
