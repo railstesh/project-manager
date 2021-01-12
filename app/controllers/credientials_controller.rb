@@ -5,7 +5,7 @@ class CredientialsController < ApplicationController
   before_action :load_crediential, only: %i[edit update destroy show]
 
   def index
-    @credientials = Crediential.all.processed_pagination(params[:page])
+    @credientials = Crediential.all.order(project_id: :asc).processed_pagination(params[:page])
   end
 
   def new

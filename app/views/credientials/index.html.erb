@@ -10,8 +10,8 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>Crediential Type</th>
             <th>Project</th>
+            <th>Crediential Type</th>
             <th>Profile</th>
             <th>Action</th>
           </tr>
@@ -19,8 +19,8 @@
         <tbody>
           <% @credientials.each do |crediential| %>
             <tr>
-              <td><%= crediential.crediential_type.name %></td>
               <td><%= crediential.project.title %></td>
+              <td><%= crediential.crediential_type.name %></td>
               <td><%= crediential.project.profile.name %></td>
               <td>
                 <%= link_to '', crediential_path(crediential), class: 'glyphicon glyphicon-eye-open' %>
