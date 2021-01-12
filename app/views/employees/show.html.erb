@@ -1,11 +1,23 @@
 <div class="right-section">
-  <div class="right-top-section">
-    <h3> Employee Details</h3>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 show-bar">
+      <div class="right-top-section">
+        <h4> Employee Details:</h4>
+      </div>
+      <ul>
+        <div class="col-md-6 col-sm-6 col-xs-12 show-bar">
+          <li> Name: <%= @employee.name %> </li>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 show-bar">
+          <li> Stack: <%= @employee.stack %> </li>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 show-bar">
+          <li> Email: <%= @employee.email %> </li>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 show-bar">
+          <li> Skills: <%= @employee.skills.join(', ') %> </li>
+        </div>
+      </ul>
+    </div>
   </div>
-  <ul>
-    <li> Name: <%= @employee.name %> </li>
-    <li> Email: <%= @employee.email %> </li>
-    <li> Stack: <%= @employee.stack %> </li>
-    <li> Skills: <%= @employee.skills.join(', ') %> </li>
-  </ul>
 </div>

@@ -1,14 +1,32 @@
 <div class="right-section">
-  <div class="right-top-section">
-    <h3> Crediential Details</h3>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 show-bar">
+      <div class="right-top-section">
+        <h4> Crediential Details:</h4>
+      </div>
+      <ul>
+        <div class="col-md-6 col-sm-6 col-xs-12 show-bar">
+          <li> Project Name: <%= @crediential.project.title %> </li>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 show-bar">
+          <li> Crediential Type: <%= @crediential.crediential_type.name %> </li>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 show-bar">
+          <li> Profile Name: <%= @crediential.project.profile.name %> </li>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 show-bar">
+          <li> URL: <%= @crediential.url %> </li>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 show-bar">
+          <li> Username: <%= @crediential.username %> </li>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 show-bar">
+          <li> Email: <%= @crediential.email %> </li>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 show-bar">
+          <li> Password: <%= @crediential.password %> </li>
+        </div>
+      </ul>
+    </div>
   </div>
-  <ul>
-    <li> Crediential Type: <%= @crediential.crediential_type.name %> </li>
-    <li> Project Name: <%= @crediential.project.title %> </li>
-    <li> Profile Name: <%= @crediential.project.profile.name %> </li>
-    <li> URL: <%= @crediential.url %> </li>
-    <li> Username: <%= @crediential.username %> </li>
-    <li> Email: <%= @crediential.email %> </li>
-    <li> Password: <%= @crediential.password %> </li>
-  </ul>
 </div>
