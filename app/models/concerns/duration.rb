@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
+# module
 module Duration
   include ActiveSupport::Concern
 
   def calculate_time
-    date1 = self.created_at.to_date
+    date1 = created_at.to_date
     date2 = DateTime.now.to_date
     date = date_diff(date1, date2)
     "#{date.first} years, #{date.second} months"

@@ -37,11 +37,11 @@ class CredientialsController < ApplicationController
   end
 
   def destroy
-    if @crediential.destroy
-      respond_to do |format|
-        format.js { redirect_to project_path(params[:project_id]) }
-        format.html { redirect_to credientials_path }
-      end
+    return unless @crediential.destroy
+
+    respond_to do |format|
+      format.js { redirect_to project_path(params[:project_id]) }
+      format.html { redirect_to credientials_path }
     end
   end
 

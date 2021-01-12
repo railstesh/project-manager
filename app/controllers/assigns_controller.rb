@@ -35,11 +35,11 @@ class AssignsController < ApplicationController
   end
 
   def destroy
-    if @assign.destroy
-      respond_to do |format|
-        format.js { redirect_to project_path(params[:project_id]) }
-        format.html { redirect_to assigns_path }
-      end
+    return unless @assign.destroy
+
+    respond_to do |format|
+      format.js { redirect_to project_path(params[:project_id]) }
+      format.html { redirect_to assigns_path }
     end
   end
 

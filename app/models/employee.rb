@@ -16,7 +16,7 @@ class Employee < ApplicationRecord
 
   def name_with_status
     if status == 'Engage'
-      "#{name} (#{status} #{self.assigns.sum(:billing_hours)} hrs)"
+      "#{name} (#{status} #{assigns.sum(:billing_hours)} hrs)"
     else
       "#{name} (#{status})"
     end

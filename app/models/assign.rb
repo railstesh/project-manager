@@ -23,13 +23,13 @@ class Assign < ApplicationRecord
   end
 
   def assign_user
-    self.update_status(self.employee, 'Engage')
-    self.project.descriptions.create(title: "#{self.project.title} is assign to #{self.employee.name} as #{self.assigned_as}")
+    update_status(employee, 'Engage')
+    project.descriptions.create(title: "#{project.title} is assign to #{employee.name} as #{assigned_as}")
   end
 
   def release_user
-    self.project.descriptions.create(title: "#{self.employee.name} is removed from #{self.project.title}")
-    count = Assign.where(employee_id: self.employee_id).count
-    self.update_status(self.employee, 'Available') if count == 0
+    project.descriptions.create(title: "#{employee.name} is removed from #{project.title}")
+    count = Assign.where(employee_id: employee_id).count
+    update_status(employee, 'Available') if count == 0
   end
 end
